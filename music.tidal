@@ -1,0 +1,49 @@
+setcps (128/60/4)
+
+gong shift = stack [ slow 2 $ n "c1" # s "supergong"
+                   , slow 2 $ n "c1" # s "supergong" # fshift (shift * 2.133)
+                   ]
+
+d1 $ gong 0 # gain 0.7
+d1 $ gong (slow 4 $ range 0 2 $ sine) # gain 0.5
+interpolateIn 1 32 $ gong 2 # gain 0
+
+d3 $ slow 2 $ n (scale "hexSus" "-12") + s "mydevice2"
+xfadeIn 3 8 $ slow 2 $ n (scale "hexSus" ("<0 0 4 7>*2" - 12)) + s "mydevice2"
+xfadeIn 3 32 $ fast 1 $ n (scale "hexSus" ("[0 ~ <0 4 7 4> ~]!4*2" - 12)) + s "mydevice2"
+d3 $ fast 2 $ n (scale "hexSus" ("[<0 2 4 0> ~]!4" - 12)) + s "mydevice2"
+d3 $ s "mydevice2!8" # n (scale "hexSus" ((fmap fromIntegral $ randrun 8) - 12))
+
+d3 $ fast 2 $ n(scale "hexSus" ("[[0 ~ 0  ~ <4 7> ~ 0] ~]" - 12)) + s "mydevice2"
+
+d4 $ slow 16 $ gain "1*32" 
+  # control 25
+  # ctlNum "2"
+  # s "mydevice2" 
+  # midicmd "control"
+
+d5 $ fast 4 $ sound "super808"
+  # crush 1
+  # gain 0.4
+  # room 1
+
+d6 $ fast 4 $ sound "superhat*4" 
+  # lpf (fast 1 $ range 1000 "2000" $ sine)
+  # gain 0
+  # room 0.2
+
+d6 $ fast 4 $ sound "superhat*4" 
+  # lpf (fast 1 $ range 1000 "6000" $ sine)
+  # gain 1
+  # room 0.2
+
+d7 $ s "[~ hh]*2" # gain 0
+d7 $ fast 4 $ s "[hh]" # gain 1
+d7 $ s "[bd <hh*2 [~ hh]>]*4" # gain 1
+
+d8 $ fast 2 $ n (scale "hexSus" "[0 <0 4 7 3>]*4") # s "mydevice"
+d8 $ fast 1 $ n (scale "hexSus" (fmap fromIntegral $ randrun 12)) # s "mydevice"
+d8 $ s "mydevice!16" # n (scale "hexSus" (fmap fromIntegral $ randrun 8))
+clutch 8 $ fast 2 $ n (scale "hexSus" "[0 <0 4 7 3>]*4") # s "mydevice"
+
+hush

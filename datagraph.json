@@ -1,0 +1,498 @@
+{
+  "version": 1,
+  "nodes": [
+    {
+      "name": "Speaker",
+      "originalNodeId": "__output__",
+      "kind": "output",
+      "canvasX": -22.43359375,
+      "canvasY": 440.25,
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "param:midicc",
+      "originalNodeId": "UHnAhDGK",
+      "kind": "param:midicc",
+      "canvasX": -190.1328125,
+      "canvasY": -304.76953125,
+      "config": {
+        "value": 64
+      },
+      "settings": {
+        "unit": "raw",
+        "channel": 1,
+        "ccNumber": 2
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "param:midinote",
+      "originalNodeId": "cNpZJ0el",
+      "kind": "param:midinote",
+      "canvasX": 33.2890625,
+      "canvasY": -239.46875,
+      "config": {
+        "value": 50
+      },
+      "settings": {
+        "unit": "frequency:midiNote",
+        "channel": 1
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "Cw54qOt6",
+      "kind": "datagraph",
+      "canvasX": -170.375,
+      "canvasY": -174.3828125,
+      "config": {
+        "typename": "datagraph::nodes::math::Add"
+      },
+      "defaultInputValues": [
+        0,
+        -64
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "WsNufAmC",
+      "kind": "datagraph",
+      "canvasX": -187.91796875,
+      "canvasY": -123.16015625,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0.002,
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "41uq-XDC",
+      "kind": "datagraph",
+      "canvasX": -174.06640625,
+      "canvasY": -63.41796875,
+      "config": {
+        "typename": "datagraph::nodes::math::Add"
+      },
+      "defaultInputValues": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "Pk6thlDU",
+      "kind": "datagraph",
+      "canvasX": -49,
+      "canvasY": 176,
+      "config": {
+        "typename": "datagraph::nodes::crossfade::Crossfade"
+      },
+      "defaultInputValues": [
+        0,
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "visualizer:oscilloscope",
+      "originalNodeId": "2CQ-PHHY",
+      "kind": "visualizer:oscilloscope",
+      "canvasX": -262.2578125,
+      "canvasY": 431.6796875,
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "_si8cp5R",
+      "kind": "datagraph",
+      "canvasX": -93.203125,
+      "canvasY": 112.9609375,
+      "config": {
+        "typename": "datagraph::nodes::oscillator::Saw"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "F34k43-v",
+      "kind": "datagraph",
+      "canvasX": -35.43359375,
+      "canvasY": 343.25,
+      "config": {
+        "typename": "datagraph::nodes::filter::BiquadLPF"
+      },
+      "defaultInputValues": [
+        0,
+        0,
+        3
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "rFATkPOY",
+      "kind": "datagraph",
+      "canvasX": -14,
+      "canvasY": 80,
+      "config": {
+        "typename": "datagraph::nodes::oscillator::Sin"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "Multiply",
+      "originalNodeId": "wOBjQ2QO",
+      "kind": "datagraph",
+      "canvasX": 3.5,
+      "canvasY": 388.8359375,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "MIDI Gate",
+      "originalNodeId": "MtBh6ehE",
+      "kind": "param:midigate",
+      "canvasX": -206.43359375,
+      "canvasY": 167.9140625,
+      "config": {
+        "value": 0
+      },
+      "settings": {
+        "unit": "raw",
+        "channel": 1
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "Multiply",
+      "originalNodeId": "36o5ljkE",
+      "kind": "datagraph",
+      "canvasX": -84.59765625,
+      "canvasY": 265.140625,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "OnePoleLowPass",
+      "originalNodeId": "KLfC4w4-",
+      "kind": "datagraph",
+      "canvasX": -159.0234375,
+      "canvasY": -227.375,
+      "config": {
+        "typename": "datagraph::nodes::filter::OnePoleLowPass"
+      },
+      "defaultInputValues": [
+        0,
+        0.5
+      ]
+    },
+    {
+      "name": "Multiply",
+      "originalNodeId": "t8BAVD8m",
+      "kind": "datagraph",
+      "canvasX": -122.5390625,
+      "canvasY": -10.44921875,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "FreqToCv",
+      "originalNodeId": "M_fWa4qx",
+      "kind": "datagraph",
+      "canvasX": -119.76953125,
+      "canvasY": 47.00390625,
+      "config": {
+        "typename": "datagraph::nodes::conversions::FreqToCv"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "CvToFreq",
+      "originalNodeId": "8WwjsR3N",
+      "kind": "datagraph",
+      "canvasX": -81.1953125,
+      "canvasY": -68.984375,
+      "config": {
+        "typename": "datagraph::nodes::conversions::CvToFreq"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "Slider",
+      "originalNodeId": "5qyfaw6-",
+      "kind": "param:slider",
+      "canvasX": 144.65971159568562,
+      "canvasY": 221.07538262655225,
+      "config": {
+        "value": 2505
+      },
+      "settings": {
+        "unit": "raw",
+        "min": 0,
+        "max": 4000,
+        "step": 0.01
+      },
+      "defaultInputValues": []
+    }
+  ],
+  "edges": [
+    {
+      "from": {
+        "nodeId": "Cw54qOt6",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "WsNufAmC",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "WsNufAmC",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "41uq-XDC",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "Pk6thlDU",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "2CQ-PHHY",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "_si8cp5R",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "Pk6thlDU",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "cNpZJ0el",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "rFATkPOY",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "rFATkPOY",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "Pk6thlDU",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "F34k43-v",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "wOBjQ2QO",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "wOBjQ2QO",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "__output__",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "MtBh6ehE",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "36o5ljkE",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "Pk6thlDU",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "36o5ljkE",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "36o5ljkE",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "F34k43-v",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "UHnAhDGK",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "KLfC4w4-",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "KLfC4w4-",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "Cw54qOt6",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "41uq-XDC",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "t8BAVD8m",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "cNpZJ0el",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "8WwjsR3N",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "8WwjsR3N",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "t8BAVD8m",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "t8BAVD8m",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "M_fWa4qx",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "M_fWa4qx",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "_si8cp5R",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "5qyfaw6-",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "F34k43-v",
+        "port": 1,
+        "portType": "in"
+      }
+    }
+  ]
+}

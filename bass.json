@@ -1,0 +1,778 @@
+{
+  "version": 1,
+  "nodes": [
+    {
+      "name": "Speaker",
+      "originalNodeId": "__output__",
+      "kind": "output",
+      "canvasX": 15,
+      "canvasY": 484,
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "UEUw5ABf",
+      "kind": "datagraph",
+      "canvasX": -4,
+      "canvasY": -80,
+      "config": {
+        "typename": "datagraph::nodes::crossfade::Crossfade"
+      },
+      "defaultInputValues": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "jXfkDqys",
+      "kind": "datagraph",
+      "canvasX": -5,
+      "canvasY": -511,
+      "config": {
+        "typename": "datagraph::nodes::conversions::CvToFreq"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "wIuKR9jr",
+      "kind": "datagraph",
+      "canvasX": 21,
+      "canvasY": -403,
+      "config": {
+        "typename": "datagraph::nodes::math::Add"
+      },
+      "defaultInputValues": [
+        0,
+        15
+      ]
+    },
+    {
+      "name": "param:midicc",
+      "originalNodeId": "x5Kg_A2G",
+      "kind": "param:midicc",
+      "canvasX": 140,
+      "canvasY": -694,
+      "config": {
+        "value": 10
+      },
+      "settings": {
+        "unit": "raw",
+        "channel": 0,
+        "ccNumber": 1
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "MDoichEq",
+      "kind": "datagraph",
+      "canvasX": 158,
+      "canvasY": -552,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0.1
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "cFVr0gQb",
+      "kind": "datagraph",
+      "canvasX": 20,
+      "canvasY": -312,
+      "config": {
+        "typename": "datagraph::nodes::conversions::FreqToCv"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "param:midinote",
+      "originalNodeId": "YSn1apoa",
+      "kind": "param:midinote",
+      "canvasX": -82,
+      "canvasY": -619,
+      "config": {
+        "value": 38
+      },
+      "settings": {
+        "unit": "frequency:midiNote",
+        "channel": 0
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "24ZI6U-L",
+      "kind": "datagraph",
+      "canvasX": 44,
+      "canvasY": 378,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0.2
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "ZcRsC8NL",
+      "kind": "datagraph",
+      "canvasX": 122,
+      "canvasY": -444,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        2.133
+      ]
+    },
+    {
+      "name": "param:midicc",
+      "originalNodeId": "NBB_CxxS",
+      "kind": "param:midicc",
+      "canvasX": 334,
+      "canvasY": -15,
+      "config": {
+        "value": 24
+      },
+      "settings": {
+        "unit": "raw",
+        "channel": 1,
+        "ccNumber": 4
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "ZggbAXa6",
+      "kind": "datagraph",
+      "canvasX": 173,
+      "canvasY": 122,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0.005
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "_Or6oQJF",
+      "kind": "datagraph",
+      "canvasX": -78,
+      "canvasY": -194,
+      "config": {
+        "typename": "datagraph::nodes::oscillator::Saw"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "mowQ3G04",
+      "kind": "datagraph",
+      "canvasX": 19,
+      "canvasY": -194,
+      "config": {
+        "typename": "datagraph::nodes::oscillator::Saw"
+      },
+      "defaultInputValues": [
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "epnGKAfj",
+      "kind": "datagraph",
+      "canvasX": 22,
+      "canvasY": 292,
+      "config": {
+        "typename": "datagraph::nodes::filter::BiquadLPF"
+      },
+      "defaultInputValues": [
+        0,
+        0,
+        7
+      ]
+    },
+    {
+      "name": "param:midicc",
+      "originalNodeId": "0gAy1Axc",
+      "kind": "param:midicc",
+      "canvasX": 211,
+      "canvasY": -188,
+      "config": {
+        "value": 43
+      },
+      "settings": {
+        "unit": "raw",
+        "channel": 1,
+        "ccNumber": 3
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "d49qd4P-",
+      "kind": "datagraph",
+      "canvasX": 206,
+      "canvasY": -38,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        40
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "lcMjzj3O",
+      "kind": "datagraph",
+      "canvasX": 146,
+      "canvasY": 18,
+      "config": {
+        "typename": "datagraph::nodes::math::Add"
+      },
+      "defaultInputValues": [
+        0,
+        50
+      ]
+    },
+    {
+      "name": "param:midigate",
+      "originalNodeId": "ANhirkIl",
+      "kind": "param:midigate",
+      "canvasX": -520,
+      "canvasY": -381,
+      "config": {
+        "value": 1
+      },
+      "settings": {
+        "unit": "raw",
+        "channel": 0
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "cVdzsLmq",
+      "kind": "datagraph",
+      "canvasX": -476,
+      "canvasY": -13,
+      "config": {
+        "typename": "datagraph::nodes::adsr::ADSR"
+      },
+      "defaultInputValues": [
+        0,
+        0.02,
+        0,
+        1,
+        0.1
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "XjkOlCRH",
+      "kind": "datagraph",
+      "canvasX": -207,
+      "canvasY": 149,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "uYIkmT9W",
+      "kind": "datagraph",
+      "canvasX": -228,
+      "canvasY": -94,
+      "config": {
+        "typename": "datagraph::nodes::math::Add"
+      },
+      "defaultInputValues": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "8eUGY82d",
+      "kind": "datagraph",
+      "canvasX": -178,
+      "canvasY": -24,
+      "config": {
+        "typename": "datagraph::nodes::math::Add"
+      },
+      "defaultInputValues": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "param:midicc",
+      "originalNodeId": "T_iSsrtH",
+      "kind": "param:midicc",
+      "canvasX": -191,
+      "canvasY": -408,
+      "config": {
+        "value": 25
+      },
+      "settings": {
+        "unit": "raw",
+        "channel": 0,
+        "ccNumber": 2
+      },
+      "defaultInputValues": []
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "t-OIHQnd",
+      "kind": "datagraph",
+      "canvasX": -165,
+      "canvasY": -159,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0.02
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "FKAEKg9q",
+      "kind": "datagraph",
+      "canvasX": -248,
+      "canvasY": -160,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0.002
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "8J3aJr0O",
+      "kind": "datagraph",
+      "canvasX": 21,
+      "canvasY": 196,
+      "config": {
+        "typename": "datagraph::nodes::math::Multiply"
+      },
+      "defaultInputValues": [
+        0,
+        0.005
+      ]
+    },
+    {
+      "name": "datagraph",
+      "originalNodeId": "I0vIDJKt",
+      "kind": "datagraph",
+      "canvasX": -394,
+      "canvasY": -255,
+      "config": {
+        "typename": "datagraph::nodes::expenv::ExpEnv"
+      },
+      "defaultInputValues": [
+        0,
+        0.01,
+        0.2,
+        0.9
+      ]
+    },
+    {
+      "name": "visualizer:oscilloscope",
+      "originalNodeId": "SfFh8HEm",
+      "kind": "visualizer:oscilloscope",
+      "canvasX": -507,
+      "canvasY": 200,
+      "defaultInputValues": [
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": {
+        "nodeId": "jXfkDqys",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "wIuKR9jr",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "x5Kg_A2G",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "MDoichEq",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "wIuKR9jr",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "cFVr0gQb",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "24ZI6U-L",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "__output__",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "ZcRsC8NL",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "wIuKR9jr",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "MDoichEq",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "ZcRsC8NL",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "NBB_CxxS",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "ZggbAXa6",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "ZggbAXa6",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "24ZI6U-L",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "cFVr0gQb",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "mowQ3G04",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "mowQ3G04",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "UEUw5ABf",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "_Or6oQJF",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "UEUw5ABf",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "epnGKAfj",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "24ZI6U-L",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "0gAy1Axc",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "d49qd4P-",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "d49qd4P-",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "lcMjzj3O",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "ANhirkIl",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "cVdzsLmq",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "cVdzsLmq",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "XjkOlCRH",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "UEUw5ABf",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "XjkOlCRH",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "XjkOlCRH",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "epnGKAfj",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "YSn1apoa",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "jXfkDqys",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "YSn1apoa",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "_Or6oQJF",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "uYIkmT9W",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "8eUGY82d",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "T_iSsrtH",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "t-OIHQnd",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "FKAEKg9q",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "uYIkmT9W",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "t-OIHQnd",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "8eUGY82d",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "lcMjzj3O",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "8J3aJr0O",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "8eUGY82d",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "8J3aJr0O",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "8J3aJr0O",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "epnGKAfj",
+        "port": 1,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "ANhirkIl",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "I0vIDJKt",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "I0vIDJKt",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "FKAEKg9q",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "I0vIDJKt",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "SfFh8HEm",
+        "port": 0,
+        "portType": "in"
+      }
+    }
+  ]
+}
