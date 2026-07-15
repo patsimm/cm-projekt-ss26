@@ -1,60 +1,137 @@
 setcps (128/60/4)
 
-# 1 Start gong init
+-- 1 Start gong init
 
-gong shift = stack [ slow 2 $ n "d2" # s "supergong"
-                   , slow 2 $ n "d2" # s "supergong" # fshift (shift * 2.133)
+gong shift = stack [ slow 2 $ n (scale "hexSus" "f3") # s "supergong"
+                   , slow 2 $ n (scale "hexSus" "f3") # s "supergong" # fshift (shift * 2.133)
                    ]
 
-# 1.1  slowy start fading in gong without schwebung
-d1 $ gong 0 # gain 0.8
+-- 1.1  slowy start fading in gong without schwebung
+d1 $ gong 0 # gain 0.6 # lpf (slow 2 $ range 1000 "10" saw)
 
-# 1.2 change schwebung 
-d1 $ gong (slow 4 $ range 0 2 $ sine) # gain 0.8
+d1 $ gong 0 # gain 0.6
+
+-- 1.2 change schwebung 
+d1 $ gong (slow 4 $ range 0 2 $ sine) # gain 0.6
 
 # 1.3 finish at schwebung 2
-d1 $ gong 2 # gain 0.7
-interpolateIn 1 32 $ gong 2 # gain 0
+xfadeIn 1 8 $ gong 1 # gain 0
+interpolateIn 1 32 $ gong 2 # gain 0.5 # lpf 100 # room 1
 
 # 2 highat - über ganzen song
-# 2.1 fade in high hat gain 0 -> 0.7
+# 2.1    in high hat gain 0 -> 0.7
 
-d6 $ fast 1 $ sound "superhat*4" 
-  # lpf (fast 2 $ range 1000 "2000" $ sine)
+d6 $ fast 1 $ sound "superhat*8" 
+  # lpf (fast 2 $ range 5000 "1000" $ sine)
   # gain 0
   # room 0.2
 
-xfadeIn 6 16 $ fast 2 $ sound "superhat*4" 
-  # lpf (fast 2 $ range 1000 "2000" $ sine)
+xfadeIn 6 32 $ fast 1 $ sound "superhat*8" 
+  # lpf (fast 2 $ range 1000 "1500" $ sine)
   # gain 0.7
   # room 0.2
 
-# 2.2 fade out gong gain to 0.5
+xfadeIn 6 32 $ fast 1 $ sound "superhat*8" 
+  # lpf (fast 2 $ range 500 "1000" $ sine)
+  # gain 0.7
+  # room 0.2 
+
+xfadeIn 6 32 $ fast 1 $ sound "superhat*8" 
+  # lpf (fast 2 $ range 500 "1000" $ sine)
+  # gain 0
+  # room 0.2 
+
+d7 $ slow 4 $ s "808bd*4" # gain 0
+
+d7 $ slow 4 $ s "[bd <hh*2 [~ hh]>]*4" # gain 0.7 # lpf 4000 # hpf 100 
+
+xfadeIn 7 8 $ "bd*4" # gain 0
+
+# 2.2    out gong gain to 0.5
 
 
 # 3 Bass setzt ein
 
-# 3.1 fade in gain mit schwebung 10 um gongs schwebung anzeugleichen
+# 3.1    in gain mit schwebung 10 um gongs schwebung anzeugleichen
 # bass hat k3 lfo auf fast 0, gain langsam hoch
 
-d3 $ slow 1 $ n (scale "hexSus" "-12") + s "mydevice2"
+d3 $ slow 2 $ n (scale "hexSus" "0")-24 + s "mydevice2" # gain 1
+d3 $ slow 2 $ n (scale "hexSus" "<-2 1 0>")-24 + s "mydevice2" # gain 1
+
+d3 $ slow 2 $ degradeBy 0.5 $ n (scale "hexSus" (fmap fromIntegral $ randrun 16)-24) # s "mydevice2" # gain 0.7 
+
 
 # 3.2 Schwebung bass spielen
 
 # 4 Drums init
 
-d7 $ slow 1 $ "808bd:1*4" # gain 0 # delay 1.5
-d7 $ slow 1 $ "[808bd <[808sd 808oh] [808oh 808sd]>]*2" # gain 0.8
+d7 $ slow 2 $ "808bd*1" # gain 0.7 # delay 1.5 
+d7 $ slow 1 $ "[808bd <[808sd 808oh] [808oh 808sd]>]*2" # gain 0.6
 
 # 5 Synth init
 # Delay time hin und her um Tonhöhe zu verändern
-d8 $ s "mydevice" # n 0
+d8 $ slow 2 $ s "mydevice" # n "<-2, 1, 5>"
 
 # Mit LFO und EG Töne ändern
 d8 $ n "5" + s "mydevice"
 
+# rand tones to break pattern
+d8 $ slow 2 $ degradeBy 0.8 $ n (scale "hexSus" (fmap fromIntegral $ randrun 8)) # s "mydevice" # gain 0.7 
+xfadeIn 8 12 $ slow 2 $ n "0*4" + s "mydevice"
+
+d8 $ slow 4 $ n (scale "hexSus" (fmap fromIntegral $ randrun (segment 1 $ irand 10 + 3)) - 12) # s "mydevice"
+
 # Vielleicht increasen wie bei einem loop für drop
-d8 $ n "5*4" + s "mydevice"
+d8 $ slow 1 $ n "5*4" + s "mydevice"
+
+hush
+-------- testin
+d1 $ n ("0 1 2 3 4 5 6 7") # sound "superpiano"
+lookup "minPent" scaleTable
+d1 $ n (scale "techno" "0 1 2 3 4 5 6 7") # sound "superpiano" # lpf 600
+d1 $ n (arpg "'major7 [0,4,7,9]") # sound "superpiano"
+d1 $ n "c'min9'8" # s "mydevice2"
+d1 $ n "c'maj" # s "bass:4" # lpf 100
+
+hush
+
+d3 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"
+  # attack 3                                   -- long swell in, kills the "hit"
+  # release 5                                  -- long   out, blurs into the next chord
+  # sustain 1
+  # legato 2                                   -- notes overlap, envelope never fully resets
+  # lpf (slow 20 $ range 400 "2000" $ sine)    -- slow filter drift = the "spherical" motion
+  # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
+  # gain 0.6
+
+xfadeIn 3 32 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"
+  # attack 3                                   -- long swell in, kills the "hit"
+  # release 5                                  -- long   out, blurs into the next chord
+  # sustain 1
+  # legato 2                                   -- notes overlap, envelope never fully resets
+  # lpf (slow 20 $ range 400 "2000" $ sine)    -- slow filter drift = the "spherical" motion
+  # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
+  # gain 0
+
+d4 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # s "superzow"
+  # attack 3                                   -- long swell in, kills the "hit"
+  # release 5                                  -- long   out, blurs into the next chord
+  # sustain 1
+  # legato 2                                   -- notes overlap, envelope never fully resets
+  # lpf (slow 20 $ range 400 "1000" $ sine)    -- slow filter drift = the "spherical" motion
+  # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
+  # gain 0.4
+
+xfadeIn 4 8 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # s "superzow"
+  # attack 3                                   -- long swell in, kills the "hit"
+  # release 5                                  -- long   out, blurs into the next chord
+  # sustain 1
+  # legato 2                                   -- notes overlap, envelope never fully resets
+  # lpf (slow 20 $ range 400 "1000" $ sine)    -- slow filter drift = the "spherical" motion
+  # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
+  # gain 0
 
 # 3 synth 
-d3 $ slow 2 $ n (scale "hexSus" "-12") + s "mydevice2"
+d8 $ slow 4 $ n (scale "hexSus" "[0 <0 4 -4 6 1 4>]*4") + s "mydevice" # gain 0.7
+hush
+
