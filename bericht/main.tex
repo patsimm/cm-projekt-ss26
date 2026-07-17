@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{a4wide}
+\usepackage{graphicx}
+\usepackage{biblatex}
+
+\addbibresource{bibliography.bib}
+\pagestyle{plain}
+
+\title{Live Programmierung technoider Meditationsmusik mit analogem Synthesizer}
+\author{Patrick Simmelbauer \and Lukas Zahle \and Phil Krause}
+
+\date{20. Juli 2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{Einleitung}
+Tidal \cite{mclean2010tidal}
+
+\section*{Hard- und Software Aufbau}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[height=250pt]{../assets/setup.png}
+    \caption{Hard- und Software-Aufbau des Projekts}
+    \label{fig:setup}
+\end{figure}
+
+
+Im Projekt werden 3 verschiedene Tonquellen genutzt. Dabei tauschen die verschiedenen Tonquellen untereinander Steuer-Signale aus und die 3 Tonquellen müssen am Ende zu einer einzelnen Tonsignal zusammengeführt werden. Da eines der Tonquellen ein externer Hardware Synthesizer ist reicht eine Software-Seitige Verbindung nicht nicht aus und es ist zusäztliche Hardware notwendig.
+
+Das Herzstück des Aufbaus stellt das Audio- und MIDI-Interface \textit{Steinberg UR242} dar. Dies wird per USB Anschluss mit dem Laptop verbunden und ermöglicht das Anbinden von externen Audio- und MIDI-Geräten. Das Interface kann dann im Betriebssystem als Audioausgabegerät genutzt werden. Das empfangene digitale Audio-Signal wird im Interface in ein analoges Signal umgewandelt. Das analoge Ausgangssignal des Interfaces wird direkt mit dem Lautsprecher-Aufbau verbunden.
+
+Der im Projekt verwendete externe Synthesizer ist der \textit{Korg Volca Keys}. Sein MIDI-Eingang wird mit dem MIDI-Ausgang des Audio-Interfaces verbunden. Welche Noten zu welchem Zeitpunkt vom Synthesizer wiedergegeben werden sollen, oder anders ausgedrückt, welche Frequenzen die analogen Oszillatoren in ihm erzeugen sollen, wird über die MIDI-Schnittstelle gesteuert. Das dabei erzeugte Audiosignal wird zurück zum Interface geleitet und dort in ein digitales Signal umgewandelt, das der Laptop verarbeiten kann.
+
+Neben dem Hardwaresynthesizer wird im Projekt ein Software-Synthesizer genutzt. Dieser ist konfigurierbar über eine Browser-Oberfläche und kann über die Web-MIDI-API \cite{Wilson:25:WMA} angesprochen werden. Das erzeugte Tonsignal wird über das Betriebssystem an das Audio-Interface geleitet.
+
+Als dritte und letzte Tonquelle wird im Projekt \textit{SuperCollider}\cite{mccartney1996supercollider} genutzt. SuperCollider dient als Backend für TidalCycles. TidalCylces steuert SuperCollider, SuperCollider erzeugt Audio- und MIDI-Signale und leitet diese an die jeweiligen Hard- und Software-Geräte weiter.
+
+\printbibliography
+
+\end{document}
