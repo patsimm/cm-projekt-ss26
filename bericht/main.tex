@@ -8,6 +8,7 @@
 \usepackage{a4wide}
 \usepackage{graphicx}
 \usepackage{biblatex}
+\usepackage{amsmath}
 
 \addbibresource{bibliography.bib}
 \pagestyle{plain}
@@ -73,6 +74,16 @@ Der im Projekt verwendete externe Synthesizer ist der \textit{Korg Volca Keys}. 
 Neben dem Hardwaresynthesizer wird im Projekt ein Software-Synthesizer genutzt. Dieser ist konfigurierbar über eine Browser-Oberfläche und kann über die Web-MIDI-API \cite{Wilson:25:WMA} angesprochen werden. Das erzeugte Tonsignal wird über das Betriebssystem an das Audio-Interface geleitet.
 
 Als dritte und letzte Tonquelle wird im Projekt \textit{SuperCollider}\cite{mccartney1996supercollider} genutzt. SuperCollider dient als Backend für TidalCycles. TidalCylces steuert SuperCollider, SuperCollider erzeugt Audio- und MIDI-Signale und leitet diese an die jeweiligen Hard- und Software-Geräte weiter.
+
+
+%----------------------------
+% Phils Sachen
+%--------------------------
+\section{Theorie}
+\include{Schwebung}
+\include{Delay}
+\include{Saegezahn}
+
 
 \printbibliography
 

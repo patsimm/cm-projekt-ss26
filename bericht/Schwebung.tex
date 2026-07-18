@@ -1,0 +1,29 @@
+\subsection{Schwebung}
+Zwei Schwingungen mit gleicher Amplitude und leicht unterschiedlichen Frequenzen, werden vom menschlichen Ohr nicht als zwei getrennte Töne wahrgenommen, stattdessen hört man einen Ton einer Frequenz die genau zwischen den beiden ursprünglichen Tönen liegt, dieser wird jedoch kontinuierlich lauter und wieder leiser. Dieser Effekt ist allgemein als Schwebung bekannt. Der Effekt ergibt sich direkt aus der Addition der beiden Schwingungen.
+\begin{equation}
+    \label{eq:Addition}
+    A_{res}(t) = A \sin(2\pi f_1t) + A \sin(2\pi f_2t)
+\end{equation}
+Es gilt:
+\begin{equation}
+    \label{eq:Trig}
+   \sin(a) + \sin(b) = 2\sin(\frac{a+b}{2})\cos(\frac{a-b}{2})
+\end{equation}
+Durch Einsetzen von \ref{eq:Trig} in \ref{eq:Addition} folgt dann:
+\begin{equation}
+    \label{eq:Ergebnis}
+    \begin{aligned}
+        A_{res}(t) = 2 A \cos(2\pi \frac{f_1-f_2}{2}t) \sin(2\pi \frac{f_1+f_2}{2}t) \\
+            = 2 A \cos(\pi f_{Schwebung}t) \sin(2\pi f_r t)
+    \end{aligned}
+\end{equation}
+Wobei $\frac{f_1+f_2}{2}$ die Frequenz des resultierenden Tones $f_r$ beschreibt und $\frac{f_1-f_2}{2}$ die Frequenz mit der sich die Amplitude ändert. Da nur der Betrag der Amplitude interessant ist, schreiben wir $f_{Schwebung} = |f_1 - f_2|$.
+Der Effekt der Schwebung kann zur Klangsynthese ausgenutzt werden, insbesondere bei der Verwendung gleicher Töne, von denen einer eine leichte Frequenzveränderung erfährt ist die resultierende Schwebungsfrequenz direkt abhängig von der Änderung der Frequenz:
+\begin{equation}
+    \begin{gathered}
+    f_{Schwebung} = |f_1 - f_2| \\
+    f_2 = f_1 + f_{shift} \\
+    f_{Schwebung} = |f_1 - (f_1 + f_{shift})| = |f_{shift}|
+    \end{gathered}
+\end{equation}
+Durch diese Eigenschaft können sehr gezielt Schwebungsfrequenzen erzeugt werden, die beispielsweise zum Takt der Musik passen.
