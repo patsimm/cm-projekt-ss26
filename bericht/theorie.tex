@@ -1,3 +1,4 @@
+\section{Theorie}
 \subsection{Schwebung}
 Zwei Schwingungen mit gleicher Amplitude und leicht unterschiedlichen Frequenzen, werden vom menschlichen Ohr nicht als zwei getrennte Töne wahrgenommen, stattdessen hört man einen Ton einer Frequenz die genau zwischen den beiden ursprünglichen Tönen liegt, dieser wird jedoch kontinuierlich lauter und wieder leiser. Dieser Effekt ist allgemein als Schwebung bekannt. Der Effekt ergibt sich direkt aus der Addition der beiden Schwingungen.
 \begin{equation}
@@ -27,3 +28,15 @@ Der Effekt der Schwebung kann zur Klangsynthese ausgenutzt werden, insbesondere 
     \end{gathered}
 \end{equation}
 Durch diese Eigenschaft können sehr gezielt Schwebungsfrequenzen erzeugt werden, die beispielsweise zum Takt der Musik passen.
+
+
+\subsection{Sägezahn-Schwingung}
+Gleichung \ref{eq:Saegezahn} zeigt die Fourier-Zerlegung einer Sägezahnschwingung bekannt aus der Vorlesung und Übung.
+\begin{equation}
+    \label{eq:Saegezahn}
+    f = - \frac{2}{\pi}\sum_{k\geq1}\frac{(-1)^k}{k}\sin(kx)
+\end{equation}
+Aus der Gleichung folgt, das eine Sägezahnschwingung aus einer Grundfrequenz und deren ganzahligen Vielfachen zusammengesetzt wird. Wird auf eine solche Schwingung nun ein sogenannter Tiefpassfilter angewendet, dessen Filterfrequenz sich der Grundfrequenz der Sägezahnschwingung annähert $(f_{filter} \to x)$, so ensteht wiederum eine reine harmonische Schwingung, da nur die Grundfrequenz übrig bleibt und die vielfachen gefiltert werden. Aufgrund des unterschiedlichen Klangbilds einer Sägezahnschwingung im Vergleich zu einer rein harmonischen Schwingung kann dieser Effekt ausgenutzt werden, um den Klang eines Synthesizers anzupassen.\\
+Die durch einen Synthesizer erzeugte Sägezahnschwingung wird hierbei durch einen Tiefpassfilter geleitet, um so höher die eingestellte Filterfrequenz ist, desto mehr gleicht die resultierende Schwingung dem Original, der Ton klingt also, typisch für Sägezahnschwingungen, rau, $f_{filter} \to \infty$ wäre hierbei die perfekte Sägezahnschwingung. Je mehr die Filterfrequenz nun der Grundfrequenz des erzeugten Tons angenähert wird, desto weicher klingt der resultierende Ton.
+
+\subsection{Delay}
