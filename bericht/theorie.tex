@@ -52,3 +52,8 @@ Die durch einen Synthesizer erzeugte Sägezahnschwingung wird hierbei durch eine
 Der Delay Effekt spielt ein aufgenommenes Signal mit einer gewissen Zeitverzögerung immer wieder ab. Er ist dabei über zwei Parameter modifizierbar, nämlich die Zeitverzögerung mit der das Signal wiederholt wird und der Faktor um den das Signal bei jeder Wiederholung abgeschwächt wird. Das Signal wird hierbei bei modernen analogen Systemen mithilfe eines analog zu digital Wandlers in einem kleinen Puffer gespeichert und anschließend wieder abgespielt (vgl. Boss DD-2 Digital Delay Pedal~\cite{HobbyHourDD2Delay}).\\
 Der Zeit-Parameter des Effekts gibt hierbei, gerade bei solchen analogen Systemen, oft lediglich an wie schnell das im Puffer gespeicherte Signal wieder abgespielt werden soll. Wie in der Vorlesung gezeigt, kann dadurch ein zusätzlicher Effekt erzeugt werden. Durch Veränderung des Zeit-Parameters während ein Signal abgespielt wird, kann die Tonhöhe verändert werden.\\
 Das schneller, beziehungsweise langsamere, Durchlaufen des Puffers sorgt dafür, dass die digital gespeicherten Werte zu einem analogen Signal mit einer vom original Signal unterschiedlichen Frequenz zurückgewandelt werden. 
+
+\subsection{Musical Instrument Digital Interface (MIDI)}
+\label{sec:MIDI}
+\subsubsection{MIDI-Control Change (MIDI-CC)}
+Eine \textit{MIDI Control Change} Nachricht besteht aus einer Control Nummer (ganze Zahl zwischen 0 und 127), sowie einem Wert (ebenfalls ganze Zahl zwischen 0 und 127). Mithilfe dieser Nachrichten können verschiedene Parameter eingestellt werden. Bestimmte Control Nummern sind für die Einstellung gewisser Parameter vorgesehen~\cite{MIDIControlChange}. Es kann also beispielsweise über Control Nummer 7 die Lautstärke eines Kanals angepasst werden.
