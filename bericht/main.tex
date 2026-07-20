@@ -39,6 +39,7 @@
 }
 
 \lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Codebeispiel}
 
 \addbibresource{bibliography.bib}
 \pagestyle{plain}
@@ -186,7 +187,7 @@ Im Projekt wird jedoch nicht die Rust API direkt genutzt, sondern eine graphisch
     \label{fig:datagraph}
 \end{figure}
 
-Der gezeigte datagraph Patch nutzt 2 Sägezahn-Oszillatoren, die immer die Frequenz der zuletzt erhaltenen MIDI-Note wiedergeben. Die Frequenz eines der beiden Oszillatoren kann über ein MIDI-CC Signal (vgl. Abschnitt~\ref{sec:MIDI-CC}) angepasst werden, sodass auch hier ein Schwebungseffekt erzeugt werden kann. Die beiden Oszillatoren werden dann gemischt und das gemischte Signal wird mit einer Hüllkurve multipliziert. Die Hüllkurve wird über einen \texttt{midigate}-Knoten gesteuert. Dieser extrahiert ein Gate Signal aus den erhaltenen \glqq Note On\grqq\ und \glqq Note Off\grqq\ MIDI-Signalen~\cite{moog1986midi}.
+Der gezeigte datagraph Patch nutzt 2 Sägezahn-Oszillatoren, die immer die Frequenz der zuletzt erhaltenen MIDI-Note wiedergeben. Die Frequenz eines der beiden Oszillatoren kann über ein MIDI-CC Signal (vgl. Abschnitt~\ref{sec:MIDI-CC}) angepasst werden, sodass auch hier ein Schwebungseffekt erzeugt werden kann. Die beiden Oszillatoren werden dann gemischt und das gemischte Signal wird mit einer Hüllkurve multipliziert. Die Hüllkurve wird über einen \texttt{midigate}-Knoten gesteuert. Dieser extrahiert ein Gate Signal aus den erhaltenen \enquote{Note On}- und \enquote{Note Off}-MIDI-Signalen~\cite{moog1986midi}.
 
 Um Elemente aus dem Techno wiederzuverwenden, wurde eine zusätzliche Hüllkurve definiert, welche ebenso über den \texttt{midigate}-Knoten gesteuert wird. Diese Hüllkurve wird dann genutzt, um die Filterfrequenz eines Tiefpassfilters anzupassen. Der Einfluss dieser Hüllkurve auf die Filterfrequenz kann durch einen MIDI-CC Parameter gesteuert werden. Dieses Verhalten gleicht dem Parameter \textit{ENV MOD} des im Techno viel verwendeten Synthesizers \textit{Roland TB-303}.
 
