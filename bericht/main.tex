@@ -69,14 +69,14 @@ Das Musikstück stellt somit eine Verbindung zwischen harmonischer Schwebung und
 
 \subsection{Techno}
 
-1989 markiert das Jahr, in dem das Musikgenre Techno erstmals eine breite öffentliche und kulturelle Wahrnehmung erlangte \cite{ischebeck_subjekt_2025}. Techno ist ein überwiegend instrumentales Musikgenre, das sich im Laufe seiner Entwicklung stark ausdifferenziert hat \cite{hecken_techno_2017}. Charakteristisch zeichnet es sich durch drei zentrale Merkmale aus: ein hohes Tempo ab circa 120 Beats pro Minute (BPM) mit einer kontinuierlichen Bassdrum in Viervierteltakt („Four to the Floor”), die additive Überlagerung repetitiver perkussiver und melodischer Patterns und der Einsatz elektronisch erzeugter und häufig bewusst hart und technisch klingender Sounds \cite{hecken_techno_2017}. Die Produktion verfolgt einem szenebasierten Do-It-Yourself-Ansatz (DIY) und wird mit Computer, elektronischen Instrumenten wie Drum Machines und Synthesizer sowie Samplern produziert \cite{hecken_techno_2017}.
+1989 markiert das Jahr, in dem das Musikgenre Techno erstmals eine breite öffentliche und kulturelle Wahrnehmung erlangte \cite{ischebeck_subjekt_2025}. Techno ist ein überwiegend instrumentales Musikgenre, das sich im Laufe seiner Entwicklung stark ausdifferenziert hat \cite{hecken_techno_2017}. Charakteristisch zeichnet es sich durch drei zentrale Merkmale aus: ein hohes Tempo ab circa 120 Beats pro Minute (BPM) mit einer kontinuierlichen Bassdrum im Viervierteltakt (\enquote{Four to the Floor}), die additive Überlagerung repetitiver perkussiver und melodischer Patterns und der Einsatz elektronisch erzeugter und häufig bewusst hart und technisch klingender Sounds \cite{hecken_techno_2017}. Die Produktion verfolgt einen szenebasierten Do-It-Yourself-Ansatz (DIY) und wird mit Computer, elektronischen Instrumenten wie Drum Machines und Synthesizern sowie Samplern produziert \cite{hecken_techno_2017}.
 
 \subsection{Ambient}
 
 Ambient-Musik stellt ein Subgenre der elektronischen Musik dar, dessen Ursprünge sich in der ersten Hälfte des 20. Jahrhunderts verorten lassen. \cite{velescu_ambient_2015} 
 Als Form atmosphärischer Hintergrundmusik konzentriert sich das Genre weniger auf melodische und rhythmische Entwicklung, als auf Klangfarben und die Schaffung eines bestimmten Klangraums.  \cite{velescu_ambient_2015}
 
-Charakteristische Merkmale des Genres sind die bevorzugte Verwendung von Dur- oder pentatonischer Tonleitern, eine stark reduzierte, minimalistische Klangplatte und eine geringe harmonische Komplexität. Auf Gesang und perkussive Elemente wird weitestgehend verzichtet. Häufig werden organisch wirkende Klangfarben mit Naturaufnahmen kombiniert, welche durch einen ausgeprägten Hall-Effekt eine räumliche und atmosphärische Wirkung erhalten. \cite{burdon_immunological_2023}
+Charakteristische Merkmale des Genres sind die bevorzugte Verwendung von Dur- oder pentatonischen Tonleitern, eine stark reduzierte, minimalistische Klangpalette und eine geringe harmonische Komplexität. Auf Gesang und perkussive Elemente wird weitestgehend verzichtet. Häufig werden organisch wirkende Klangfarben mit Naturaufnahmen kombiniert, welche durch einen ausgeprägten Hall-Effekt eine räumliche und atmosphärische Wirkung erhalten. \cite{burdon_immunological_2023}
 
 \subsection{Ambient Techno}
 
@@ -132,9 +132,9 @@ Neben dem Hardware-Synthesizer wird im Projekt ein Software-Synthesizer genutzt,
     \label{fig:datagraph}
 \end{figure}
 
-Der Software-Synthesizer erzeugt Töne durch einen vom Nutzer programmierbaren Audio-Graph. Der Audio-Graph besteht aus Knoten, die miteinander verbunden werden können. Jeder Knoten hat eine bestimmte Funktion, wie z.B. die Erzeugung eines Tonsignals, die Modulation eines Signals oder die Addition von Signalen. Codebeispiel~\ref{lst:add} zeigt eine einfache Implementierung eines Knotens, der zwei Eingangssignale addiert und das Ergebnis an einem Ausgang bereitstellt. Im Codebeispiel~\ref{lst:add_example} ist zu sehen wie dieser Add-Knoten dann programmatisch via Rust API genutzt werden kann. Hier werden 2 Sinus Signale unterschiedlicher Frequenzen addiert und die ersten 10 generierten Sample-Werte ausgegeben.
+Der Software-Synthesizer erzeugt Töne durch einen vom Nutzer programmierbaren Audio-Graph. Der Audio-Graph besteht aus Knoten, die miteinander verbunden werden können. Jeder Knoten hat eine bestimmte Funktion, wie z.B. die Erzeugung eines Tonsignals, die Modulation eines Signals oder die Addition von Signalen. Codebeispiel~\ref{lst:add} zeigt eine einfache Implementierung eines Knotens, der zwei Eingangssignale addiert und das Ergebnis an einem Ausgang bereitstellt. Im Codebeispiel~\ref{lst:add_example} ist zu sehen, wie dieser Add-Knoten dann programmatisch via Rust API genutzt werden kann. Hier werden zwei Sinus-Signale unterschiedlicher Frequenzen addiert und die ersten 10 generierten Sample-Werte ausgegeben.
 
-Im Projekt benutzen wir jedoch nicht die Rust API direkt, sondern nutzen eine graphische Nutzeroberfläche mit welcher man Audio-Graphen dieser Art visuell erstellen kann. Abbildung \ref{fig:datagraph} zeigt die visuelle Darstellung eines Audio-Graphin in der Nutzeroberfläche.
+Im Projekt benutzen wir jedoch nicht die Rust API direkt, sondern nutzen eine graphische Nutzeroberfläche mit welcher man Audio-Graphen dieser Art visuell erstellen kann. Abbildung \ref{fig:datagraph} zeigt die visuelle Darstellung eines Audio-Graphen in der Nutzeroberfläche.
 
 
 \begin{lstlisting}[language=rust, caption=Implementierung eines Knotens zur Addition in der Software-Synthesizer-Umgebung, label=lst:add]
