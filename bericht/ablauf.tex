@@ -51,7 +51,7 @@ d8 $ slow 2 $ s "mydevice" # n "<-2, 1, 5>"
 
 \subsection{Pad}
 %TODO:  bringt der lpf wirklich was?? %
-Ein Pad wird aus drei zyklisch wechselnden Akkorden innerhalb der pentatonischen |\texttt{minpent}-Skala" erstellt (vgl. Listing~\ref{lst:tidal-pad}, vgl. typische Skala für Ambient aus \ref{sec:ambient}). Das Pad erzeugt Hintergrundtextur und fügt gleichzeitig eine melodische Ebene hinzu.
+Ein Pad wird aus drei zyklisch wechselnden Akkorden innerhalb der pentatonischen \texttt{minpent}-Skala" erstellt (vgl. Listing~\ref{lst:tidal-pad}, vgl. typische Skala für Ambient aus \ref{sec:ambient}). Das Pad erzeugt Hintergrundtextur und fügt gleichzeitig eine melodische Ebene hinzu.
 Eine lange Attack-Zeit von drei Sekunden sowie eine Release-Zeit von fünf Sekunden sorgt dafür, dass die Akkorde ohne hörbaren Einsatzpunkt einschwingen und weich ineinander übergehen. In Kombination mit \texttt{legato 2} überlappen sich aufeinanderfolgende Akkorde zeitlich, sodass der perkussive Charakter eines klassischen Akkordanschlags vermieden wird. Ein stark ausgeprägter Reverb (\texttt{room 0.9}, \texttt{size 0.95}) verleiht dem Pad abschließend die räumliche Tiefe für den sphärischen Gesamtklang.
 
 \begin{lstlisting}[language=Haskell, caption={Erzeugung Hintergrund Pad}, label={lst:tidal-pad}]
