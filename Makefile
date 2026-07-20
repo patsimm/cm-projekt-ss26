@@ -1,13 +1,3 @@
-# Makefile zum Erzeugen des PDF-Berichts
-#
-# Ziele:
-#   make            -> baut den PDF-Bericht (Standard)
-#   make pdf         -> baut den PDF-Bericht
-#   make diagram     -> erzeugt das Diagramm (PNG) aus der Mermaid-Quelle
-#   make clean       -> loescht LaTeX-Hilfsdateien
-#   make distclean   -> loescht zusaetzlich das PDF und das erzeugte PNG
-#   make view        -> baut und oeffnet das PDF (macOS)
-
 BERICHT_DIR := bericht
 MAIN        := main
 PDF         := $(BERICHT_DIR)/$(MAIN).pdf
