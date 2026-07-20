@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{csquotes}
 \usepackage{hyperref}
+\usepackage{xurl}
 \usepackage{booktabs}
 \usepackage{a4wide}
 \usepackage{graphicx}
@@ -41,6 +42,7 @@
 
 \addbibresource{bibliography.bib}
 \pagestyle{plain}
+\setlength{\emergencystretch}{3em}
 
 \title{Live Programmierung technoider Meditationsmusik mit analogem Synthesizer}
 \author{Patrick Simmelbauer \and Lukas Zahel \and Phil Krause}
@@ -87,7 +89,7 @@ Ambient Techno bildet die Schnittmenge der beiden zuvor beschriebenen Genres. Es
 Das Genre legt den Fokus auf subtile klangliche Entwicklungen anstelle klassischer Drops und stellt emotionale Resonanz über strukturelle Komplexität.
 Die BPM-Zahl liegt dabei meist etwas unterhalb klassischer Techno-Strukturen und bewegt sich zwischen 90 und 125 BPM. Charakteristisch sind lange Wiederholungen mit graduellen Übergängen anstelle schneller Veränderungen~\cite{SampleSound}.
 
-Einen wichtigen Teil für einen atmosphärischen und tiefen Klang stellen Texturen dar. Diese können durch Field Recordings (Natur- oder Umgebungsgeräusche, die außerhalb des Tonstudios aufgenommen werden), bearbeitete Rauschanteile durch Filter und LFO-Modulationen, Vinyl-Knistern, sich verändernde harmonische Obertöne oder Pads erzeugt werden~\cite{SampleSound}.
+Einen wichtigen Teil für einen atmosphärischen und tiefen Klang stellen Texturen dar. Diese können durch Field Recordings (Natur- oder Umgebungsgeräusche, die außerhalb des Tonstudios aufgenommen werden), bearbeitete Rauschanteile durch Filter und LFO"=Modulationen, Vinyl-Knistern, sich verändernde harmonische Obertöne oder Pads erzeugt werden~\cite{SampleSound}.
 Pads stellen lang anhaltende polyphone Akkorde dar, welche typischerweise durch Synthesizer mit langsamen Attack- und Release-Zeiten, einer sich langsam verändernden Lautstärke sowie dem Einsatz von Hochpassfiltern erzeugt werden~\cite{BabyAudio, SampleSound}.
 Ein weiteres charakteristisches Merkmal ist die Illusion räumlicher Tiefe durch den Einsatz von Delay- und Halleffekten. Insgesamt entsteht dadurch eine ruhige und geheimnisvolle Atmosphäre~\cite{SampleSound}.
 
@@ -100,14 +102,18 @@ Der Aufbau von Ambient Techno ist durch eine langsame, fließende Entwicklung de
 \begin{figure}[htbp]
     \centering
     \includegraphics[height=250pt]{../assets/setup.png}
-    \caption{Hard- und Software-Aufbau des Projekts}
+    \caption{Der Hard- und Software-Aufbau des Projekts.}
     \label{fig:setup}
 \end{figure}
 
 Im Projekt werden drei verschiedene Tonquellen genutzt. Dabei tauschen die Tonquellen untereinander Steuersignale aus und müssen am Ende zu einem einzelnen Tonsignal zusammengeführt werden. Da eine der Tonquellen ein externer Hardware-Synthesizer ist, reicht eine softwareseitige Verbindung nicht aus, und es ist zusätzliche Hardware notwendig. Eine Übersicht über die Verkabelung der Hardware-Komponenten ist in Abbildung~\ref{fig:setup} dargestellt.
 
+\subsection{Audio-Interface und Steuerung}
+
+\subsubsection{Steinberg UR242}
 Das Herzstück des Aufbaus stellt das Audio- und MIDI-Interface \textit{Steinberg UR242} dar. Dieses wird per USB-Anschluss mit dem Laptop verbunden und ermöglicht das Anbinden von externen Audio- und MIDI-Geräten. Das Interface kann dann im Betriebssystem als Audioausgabegerät genutzt werden. Das empfangene digitale Audiosignal wird im Interface in ein analoges Signal umgewandelt. Das analoge Ausgangssignal des Interfaces wird direkt mit dem Lautsprecher-Aufbau verbunden.
 
+\subsubsection{AKAI MPK mini}
 Zur Modulierung verschiedener Parameter des Software-Synthesizers wird ein \textit{AKAI MPK mini}~\cite{AkaiMPKMiniMK3} verwendet. Dieses MIDI-Keyboard, das mit einer Klaviatur und verschiedenen Drehreglern ausgestattet ist, ist in der Lage, MIDI-Signale über eine USB-Schnittstelle zu versenden. In diesem Projekt kommen jedoch lediglich die Drehregler zum Einsatz. Diese versenden ein MIDI-Control-Change-Signal (MIDI-CC) (vgl. Abschnitt~\ref{sec:MIDI-CC}).
 
 \subsection{Tonquellen}
@@ -128,7 +134,7 @@ Neben dem Hardware-Synthesizer wird im Projekt ein Software-Synthesizer genutzt,
 
 Der Software-Synthesizer erzeugt Töne durch einen vom Nutzer programmierbaren Audio-Graph. Der Audio-Graph besteht aus Knoten, die miteinander verbunden werden können. Jeder Knoten hat eine bestimmte Funktion, wie z.B. die Erzeugung eines Tonsignals, die Modulation eines Signals oder die Addition von Signalen. Codebeispiel~\ref{lst:add} zeigt eine einfache Implementierung eines Knotens, der zwei Eingangssignale addiert und das Ergebnis an einem Ausgang bereitstellt. Im Codebeispiel~\ref{lst:add_example} ist zu sehen, wie dieser \texttt{Add}-Knoten dann programmatisch via Rust API genutzt werden kann. Hier werden zwei Sinus-Signale unterschiedlicher Frequenzen addiert und die ersten 10 generierten Sample-Werte ausgegeben.
 
-\begin{lstlisting}[language=rust, caption=Implementierung eines Knotens zur Addition in der Software-Synthesizer-Umgebung, label=lst:add]
+\begin{lstlisting}[language=rust, caption=Implementierung eines Knotens zur Addition in der Software-Synthesizer-Umgebung., label=lst:add]
 pub struct Add;
 impl Node<2, 1> for Add {
   const INPUT_NAMES: [&'static str; 2] = ["input1", "input2"];
@@ -143,7 +149,7 @@ impl Node<2, 1> for Add {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=rust, caption=Beispielhafte Nutzung des Add-Knotens in der Software-Synthesizer-Umgebung, label=lst:add_example]
+\begin{lstlisting}[language=rust, caption=Beispielhafte Nutzung des Add-Knotens in der Software-Synthesizer-Umgebung., label=lst:add_example]
 let mut graph = Graph::new(44100);
 let freq1 = graph.add_param(Frequency::from_hz(440.0).cv());
 let freq2 = graph.add_param(Frequency::from_hz(880.0).cv());
@@ -161,42 +167,30 @@ let _ = graph.connect_ports(&sin1.output_port(0).unwrap(), &add.input_port(0).un
 // sin2 -> add
 let _ = graph.connect_ports(&sin2.output_port(0).unwrap(), &add.input_port(1).unwrap());
 
+let mut values = Vec::new();
 for _ in 0..10 {
-  // Ausgangswert des add-Kotens auslesen und ausgeben
-  let value = *graph.port_value(&add.output_port(0).unwrap()).unwrap();
-  println!("{:?}", value);
-  graph.tick();
+    // Ausgangswert des add-Kotens auslesen und speichern
+    let value = *graph.port_value(&add.output_port(0).unwrap()).unwrap();
+    values.push(value);
+    graph.tick();
 }
-
-/*
-Output:
-  0.0
-  0.07453336
-  0.26173612
-  0.4460045
-  0.625177
-  0.7971648
-  0.95998126
-  1.1117709
-  1.2508352
-  1.3756568    
-*/
+println!("{:?}", values); // [0.0, 0.07453336, 0.26173612, 0.4460045, 0.625177, 0.7971648, 0.95998126, 1.1117709, 1.2508352, 1.3756568]
 \end{lstlisting}
 
 Im Projekt wird jedoch nicht die Rust API direkt genutzt, sondern eine graphische Nutzeroberfläche mit welcher man Audio-Graphen dieser Art visuell erstellen kann. Abbildung~\ref{fig:datagraph} zeigt die visuelle Darstellung des im Projekt verwendeten Audio-Graphen in der Nutzeroberfläche. 
+
+\begin{figure}[hb!]
+    \centering
+    \includegraphics[height=400pt]{../assets/datagraph.png}
+    \caption{Der im Projekgt genutzte Patch in der datagraph Nutzeroberfläche.}
+    \label{fig:datagraph}
+\end{figure}
 
 Der gezeigte datagraph Patch nutzt 2 Sägezahn-Oszillatoren, die immer die Frequenz der zuletzt erhaltenen MIDI-Note wiedergeben. Die Frequenz eines der beiden Oszillatoren kann über ein MIDI-CC Signal (vgl. Abschnitt~\ref{sec:MIDI-CC}) angepasst werden, sodass auch hier ein Schwebungseffekt erzeugt werden kann. Die beiden Oszillatoren werden dann gemischt und das gemischte Signal wird mit einer Hüllkurve multipliziert. Die Hüllkurve wird über einen \texttt{midigate}-Knoten gesteuert. Dieser extrahiert ein Gate Signal aus den erhaltenen \glqq Note On\grqq\ und \glqq Note Off\grqq\ MIDI-Signalen~\cite{moog1986midi}.
 
 Um Elemente aus dem Techno wiederzuverwenden, wurde eine zusätzliche Hüllkurve definiert, welche ebenso über den \texttt{midigate}-Knoten gesteuert wird. Diese Hüllkurve wird dann genutzt, um die Filterfrequenz eines Tiefpassfilters anzupassen. Der Einfluss dieser Hüllkurve auf die Filterfrequenz kann durch einen MIDI-CC Parameter gesteuert werden. Dieses Verhalten gleicht dem Parameter \textit{ENV MOD} des im Techno viel verwendeten Synthesizers \textit{Roland TB-303}.
 
 Zusätzlich gibt es noch die Möglichkeit, die Filterfrequenz sowie die Gesamtlautstärke direkt über weitere MIDI-CC Signale zu steuern.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[height=400pt]{../assets/datagraph.png}
-    \caption{Der im Projekgt genutzte Patch in der datagraph Nutzeroberfläche.}
-    \label{fig:datagraph}
-\end{figure}
 
 \subsubsection{SuperCollider}
 Als dritte und letzte Tonquelle wird im Projekt \textit{SuperCollider}~\cite{mccartney1996supercollider} genutzt. SuperCollider dient als Backend für TidalCycles: TidalCycles steuert SuperCollider, SuperCollider erzeugt Audio- und MIDI-Signale und leitet diese an die jeweiligen Hard- und Software-Geräte weiter. Konkret erzeugt SuperCollider im Projekt die perkussiven Elemente und nutzt dafür Samples und Synthesizer, die mit der Installation von \textit{TidalCycles} mitgeliefert werden.
