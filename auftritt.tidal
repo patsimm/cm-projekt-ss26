@@ -1,9 +1,10 @@
-setcps (128/60/4)
+let bpm = 128
+setcps (bpm/60/4)
 
 -- 1 Start gong init
 
 gong shift = stack [ slow 2 $ n (scale "hexSus" "f3") # s "supergong"
-                   , slow 2 $ n (scale "hexSus" "f3") # s "supergong" # fshift (shift * 2.133)
+                   , slow 2 $ n (scale "hexSus" "f3") # s "supergong" # fshift (shift * bpm/60)
                    ]
 
 -- 1.1  slowy start fading in gong without schwebung

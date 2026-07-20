@@ -1,5 +1,16 @@
 \section{Ablauf des Live-Konzerts}
-Das gesamte Konzert findet in einer Geschwindigkeit von 128 Schlägen pro Minute statt. Dies wird erreicht indem zu Beginn einmal der Befehl $setcps (128/60/4)$ ausgeführt wird. Das Konzert beginnt mit dem Klang von zwei Klangschalen des gleichen Tones. Anschließend wird der Klang einer der beiden Klangschalen mit dem $fshift$ Effekt von TidalCycles modifiziert. Durch die leichte Frequenzverschiebung einer der beiden Töne entsteht eine Schwebung (siehe Abschnitt~\ref{sec:schwebung}). Der Effekt ist dabei so eingestellt, das eine Frequenzverschiebung von $k \cdot \frac{128}{60}$ mit $k \in \mathbb{N}$ stattfindet. Dadurch wird eine Schwebungsfrequenz erzeugt, die ein ganzzahliges Vielfaches der Taktrate beträgt. Die Wellenbäuche bzw. -Knoten der Schwebung passen damit zum Takt der Musik.
+Das gesamte Konzert findet in einer Geschwindigkeit von 128 Schlägen pro Minute statt. Dies wird erreicht indem zu Beginn einmal der Befehl $setcps (128/60/4)$ ausgeführt wird. Das Konzert beginnt mit dem Klang von zwei Klangschalen des gleichen Tones. Anschließend wird der Klang einer der beiden Klangschalen mit dem $fshift$ Effekt von TidalCycles modifiziert. Durch die leichte Frequenzverschiebung einer der beiden Töne entsteht eine Schwebung (siehe Abschnitt~\ref{sec:schwebung}). Der Effekt ist dabei so eingestellt, das eine Frequenzverschiebung von $k \cdot \frac{128}{60}$ mit $k \in \mathbb{N}$ stattfindet. Dadurch wird eine Schwebungsfrequenz erzeugt, die ein ganzzahliges Vielfaches der Taktrate beträgt. Die Wellenbäuche bzw. -Knoten der Schwebung passen damit zum Takt der Musik. Die Umsetzung in TidalCycles ist in Listing~\ref{lst:tidal-schwebung} zu sehen. Die Funktion $gong$ erzeugt hierbei zwei Töne von welchen einer mit dem $fshift$ Effekt modifiziert wird. Der Parameter $shift$ entspricht dabei dem oben genannten $k$ und kann beliebig verändert werden, um die gewünschte Schwebungsfrequenz zu erzeugen.
+
+\begin{lstlisting}[language=Haskell, caption={Erzeugung von $supergong$-Tönen mit Parametrisierung der Schwebungsfrequenz.}, label={lst:tidal-schwebung}]
+let bpm = 128
+setcps (bpm/60/4)
+
+gong shift = stack [ slow 2 $ n (scale "hexSus" "f3") # s "supergong"
+                   , slow 2 $ n (scale "hexSus" "f3") # s "supergong" # fshift (shift * bpm/60)
+                   ]
+
+d1 $ gong 2 # gain 0.6
+\end{lstlisting}
 
 Nun werden geschlossene Highhats hinzugefügt, welche mit einem Tiefpassfilter moduliert werden. Die Filterfrequenz wird hierbei mit einem Sinus der halben Schwebungsfrequenz geändert.
 
