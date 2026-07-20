@@ -46,8 +46,10 @@ Im weiteren Verlauf des Stücks wird der analoge Synthesizer durch eine randomis
 d8 $ slow 2 $ degradeBy 0.3 $ n (scale "hexSus" (fmap fromIntegral $ randrun 8)) # s "mydevice"
 \end{lstlisting}
 
-\begin{enumerate}
-    \item Einstellung Synthi "Acid" (rauer Ton durch hohe LFO Frequenz)
-    \item Random Töne Synthi
-    \item Abbau und Rückkehr zu Schwebung
-\end{enumerate}
+Das Musikstück endet, indem es wieder zum Gong zurückkehrt, mit dem es begonnen hat. Die übrigen Texturen werden währenddessen nach und nach ausgeblendet, bis schließlich nur noch der Gong zu hören ist und auch dieser langsam verstummt. Damit schließt sich der eingangs beschriebene Spannungsbogen: Das Stück kehrt zu den Schwebungen zurück, die während der gesamten Spieldauer sein klangliches Fundament bildeten.
+
+Zusammenfassend werden im Stück drei Techniken für graduelle Übergänge genutzt: \texttt{xfadeIn} blendet ganze Klangelemente über die Lautstärke ein und aus (z.\,B. \texttt{xfadeIn 6 32 \$ ... \# gain 0.7}), \texttt{interpolateIn} überführt die Parameter einer laufenden Stimme kontinuierlich in neue Zielwerte (z.\,B. \texttt{interpolateIn 1 32 \$ gong 2 \# gain 0.5}), und \texttt{range} in Kombination mit \texttt{sine} moduliert einen beliebigen Parameter fortlaufend zwischen zwei Grenzwerten (z.\,B. \texttt{lpf (range 1000 "5000" \$ sine)}). Letzteres lässt sich auch auf die Schwebungsfrequenz des Gongs anwenden (vgl. Listing~\ref{lst:tidal-gong-range}). Alle drei Techniken werden eingesetzt um abrupte Sprünge zugunsten kontinuierlicher Übergänge zu vermeiden. Dieses Prinzip entspricht dem stilistischen Mittel von Ambient Techno aus Kapitel~\ref{sec:ambient-techno}.
+
+\begin{lstlisting}[caption={Modulation der Schwebungsfrequenz mittels \texttt{range} und \texttt{sine}}, label={lst:tidal-gong-range}]
+d1 $ gong (slow 4 $ range 2 4 $ sine) # gain 0.6
+\end{lstlisting}
