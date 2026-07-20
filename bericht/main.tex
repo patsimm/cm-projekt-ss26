@@ -63,7 +63,7 @@ Ein strukturell verwandtes Prinzip lässt sich im Techno beobachten. Durch repet
 
 Ziel des Projekts ist es, diese beiden Konzepte in einer gemeinsamen Komposition zu verbinden. Als musikalische Orientierung dient dabei das Genre Ambient Techno, welches ambiente, flächige Klangtexturen mit repetitiven, technoiden Rhythmusstrukturen kombiniert~\cite{AllMusicAmbientTechno}.
 
-Zur technischen Umsetzung wird das Live-Coding-Framework Tidal Cycles~\cite{mclean2010tidal} eingesetzt. Dieses wird durch externe Hardware- und Softwarekomponenten wie einen analogen Synthesizer, ein MIDI-Keyboard sowie eine modulare Synthesizer-Software erweitert. Dadurch können unterschiedliche Klangquellen kombiniert und Möglichkeiten der interaktiven Klangerzeugung umgesetzt werden.
+Zur technischen Umsetzung wird das Live-Coding-Framework TidalCycles~\cite{mclean2010tidal} eingesetzt. Dieses wird durch externe Hardware- und Softwarekomponenten wie einen analogen Synthesizer, ein MIDI-Keyboard sowie eine modulare Synthesizer-Software erweitert. Dadurch können unterschiedliche Klangquellen kombiniert und Möglichkeiten der interaktiven Klangerzeugung umgesetzt werden.
 
 Der Songaufbau orientiert sich an einer Entwicklung von ruhigen, schwebenden Klangflächen hin zu komplexeren Ambient Techno Strukturen und greift am Ende wieder die ursprüngliche Klangbad Schwebung auf.
 
@@ -93,7 +93,7 @@ Einen wichtigen Teil für einen atmosphärischen und tiefen Klang stellen Textur
 Pads stellen lang anhaltende polyphone Akkorde dar, welche typischerweise durch Synthesizer mit langsamen Attack- und Release-Zeiten, einer sich langsam verändernden Lautstärke sowie dem Einsatz von Hochpassfiltern erzeugt werden~\cite{BabyAudio, SampleSound}.
 Ein weiteres charakteristisches Merkmal ist die Illusion räumlicher Tiefe durch den Einsatz von Delay- und Halleffekten. Insgesamt entsteht dadurch eine ruhige und geheimnisvolle Atmosphäre~\cite{SampleSound}.
 
-Der Rhythmus im Ambient Techno ist subtil und minimal gestaltet. Weiche, tiefpassgefilterte Kickdrums mit zusätzlichem tieffrequentem Bassanteil sowie dezente Percussion unterstützen die atmosphärische Wirkung des Genres, ohne in den Vordergrund zu treten~\cite{SampleSound}. Eingesetzt werden dabei häufig techno typische 808- und 909-Drumcomputer, reduzierte elektronische Klänge sowie Melodien in Moll und fremdartig klingende Samples~\cite{AllMusicAmbientTechno}.
+Der Rhythmus im Ambient Techno ist subtil und minimal gestaltet. Weiche, tiefpassgefilterte Kickdrums mit zusätzlichem tieffrequentem Bassanteil sowie dezente Percussion unterstützen die atmosphärische Wirkung des Genres, ohne in den Vordergrund zu treten~\cite{SampleSound}. Eingesetzt werden dabei häufig techno-typische 808- und 909-Drumcomputer, reduzierte elektronische Klänge sowie Melodien in Moll und fremdartig klingende Samples~\cite{AllMusicAmbientTechno}.
 
 Der Aufbau von Ambient Techno ist durch eine langsame, fließende Entwicklung der musikalischen Struktur geprägt. Ausgehend von wenigen atmosphärischen Elementen wird der Track durch das schrittweise Hinzufügen von Klängen und rhythmischen Komponenten zunehmend komplexer, bevor einzelne Elemente wieder reduziert werden und der Track schließlich ausklingt~\cite{SampleSound}.
 
@@ -169,7 +169,7 @@ let _ = graph.connect_ports(&sin2.output_port(0).unwrap(), &add.input_port(1).un
 
 let mut values = Vec::new();
 for _ in 0..10 {
-    // Ausgangswert des add-Kotens auslesen und speichern
+    // Ausgangswert des add-Knotens auslesen und speichern
     let value = *graph.port_value(&add.output_port(0).unwrap()).unwrap();
     values.push(value);
     graph.tick();
@@ -182,7 +182,7 @@ Im Projekt wird jedoch nicht die Rust API direkt genutzt, sondern eine graphisch
 \begin{figure}[hb!]
     \centering
     \includegraphics[height=400pt]{../assets/datagraph.png}
-    \caption{Der im Projekgt genutzte Patch in der datagraph Nutzeroberfläche.}
+    \caption{Der im Projekt genutzte Patch in der datagraph Nutzeroberfläche.}
     \label{fig:datagraph}
 \end{figure}
 

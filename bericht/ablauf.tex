@@ -16,7 +16,7 @@ d1 $ gong 2 # gain 0.6
 \end{lstlisting}
 
 \subsection{Percussions}
-Nun werden geschlossene Highhats hinzugefügt, welche mit einem Tiefpassfilter moduliert werden. Die Filterfrequenz wird hierbei mit einem Sinus der halben Schwebungsfrequenz geändert. Über 32 Cicles werden die Highhats langsam lauter (vgl. Listing~\ref{lst:tidal-high-hats}).
+Nun werden geschlossene Highhats hinzugefügt, welche mit einem Tiefpassfilter moduliert werden. Die Filterfrequenz wird hierbei mit einem Sinus der halben Schwebungsfrequenz geändert. Über 32 Cycles werden die Highhats langsam lauter (vgl. Listing~\ref{lst:tidal-high-hats}).
 
 \begin{lstlisting}[language=Haskell, caption={fadeIn der Highhats}, label={lst:tidal-high-hats}]
 d6 $ fast 1 $ sound "superhat*8" 
@@ -38,7 +38,7 @@ Die vier einstellbaren Parameter sind eine Frequenz-Verschiebung einer der beide
 Der Bass wird zunächst mit einem Filterwert nahe der Grundfrequenz des Tons und einer Schwebung gleich der der Klangschalen verwendet. Nun wird ein Filter auf die Klangschalen angewendet, bevor diese ganz entfernt werden.
 
 \subsection{Rhythmus und Synth}
-Verschiedene Schlag-Elemente, des typischen 808 Percussion Samples (vgl. \ref{sec:ambient-techno}, Listing~\ref{lst:tidal-drums}), werden zugeschaltet sowie der \textit{Korg Volca Keys}-Synthesizer. Dieser spielt zunächst jedoch nur einzelne Töne zu Beginn jedes zweiten Taktes und keine Melodie (vlg. Listing~\ref{lst:tidal-synth-init}). Durch Einstellen eines hohen Delay-Feedbacks und Veränderung der Zeit-Komponente wird eine Art Tremolo mit schwankender Tonhöhe erzeugt (siehe Abschnitt~\ref{sec:delay}).
+Verschiedene Schlag-Elemente, des typischen 808 Percussion Samples (vgl. \ref{sec:ambient-techno}, Listing~\ref{lst:tidal-drums}), werden zugeschaltet sowie der \textit{Korg Volca Keys}-Synthesizer. Dieser spielt zunächst jedoch nur einzelne Töne zu Beginn jedes zweiten Taktes und keine Melodie (vgl. Listing~\ref{lst:tidal-synth-init}). Durch Einstellen eines hohen Delay-Feedbacks und Veränderung der Zeit-Komponente wird eine Art Tremolo mit schwankender Tonhöhe erzeugt (siehe Abschnitt~\ref{sec:delay}).
 
 \begin{lstlisting}[language=Haskell, caption={Drum Pattern}, label={lst:tidal-drums}]
 d7 $ slow 1 $ "[808bd <[808sd 808oh] [808oh 808oh*2]>]*2" # gain 0.7 # lpf 2500
@@ -51,7 +51,7 @@ d8 $ slow 2 $ s "mydevice" # n "<-2, 1, 5>"
 
 \subsection{Pad}
 %TODO:  bringt der lpf wirklich was?? %
-Ein Pad wird aus drei zyklisch wechselnden Akkorden innerhalb der pentatonischen \texttt{minpent}-Skala erstellt (vgl. Listing~\ref{lst:tidal-pad}, vgl. typische Skala für Ambient aus Kapitel~\ref{sec:ambient}). Das Pad erzeugt eine Hintergrundtextur und fügt gleichzeitig eine melodische Ebene hinzu.
+Ein Pad wird aus drei zyklisch wechselnden Akkorden innerhalb der pentatonischen \texttt{minPent}-Skala erstellt (vgl. Listing~\ref{lst:tidal-pad}, vgl. typische Skala für Ambient aus Kapitel~\ref{sec:ambient}). Das Pad erzeugt eine Hintergrundtextur und fügt gleichzeitig eine melodische Ebene hinzu.
 Eine lange Attack-, Sustain- sowie Release-Zeit sorgt dafür, dass die Akkorde ohne hörbaren Einsatzpunkt einschwingen und weich ineinander übergehen. In Kombination mit \texttt{legato 2} überlappen sich aufeinanderfolgende Akkorde zeitlich, sodass der perkussive Charakter eines klassischen Akkordanschlags vermieden wird. Ein stark ausgeprägter Reverb (\texttt{room 0.9}, \texttt{size 0.95}) verleiht dem Pad abschließend die räumliche Tiefe für den sphärischen Gesamtklang.
 
 \begin{lstlisting}[language=Haskell, caption={Erzeugung Hintergrund Pad}, label={lst:tidal-pad}]
