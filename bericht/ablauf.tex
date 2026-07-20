@@ -52,16 +52,15 @@ d8 $ slow 2 $ s "mydevice" # n "<-2, 1, 5>"
 \subsection{Pad}
 %TODO:  bringt der lpf wirklich was?? %
 Ein Pad wird aus drei zyklisch wechselnden Akkorden innerhalb der pentatonischen \texttt{minPent}-Skala erstellt (vgl. Listing~\ref{lst:tidal-pad}, vgl. typische Skala für Ambient aus Kapitel~\ref{sec:ambient}). Das Pad erzeugt eine Hintergrundtextur und fügt gleichzeitig eine melodische Ebene hinzu.
-Eine lange Attack-, Sustain- sowie Release-Zeit sorgt dafür, dass die Akkorde ohne hörbaren Einsatzpunkt einschwingen und weich ineinander übergehen. In Kombination mit \texttt{legato 2} überlappen sich aufeinanderfolgende Akkorde zeitlich, sodass der perkussive Charakter eines klassischen Akkordanschlags vermieden wird. Ein stark ausgeprägter Reverb (\texttt{room 0.9}, \texttt{size 0.95}) verleiht dem Pad abschließend die räumliche Tiefe für den sphärischen Gesamtklang.
+Eine lange Attack-, Sustain- sowie Release-Zeit sorgt dafür, dass die Akkorde ohne hörbaren Einsatzpunkt einschwingen und weich ineinander übergehen. In Kombination mit \texttt{legato} überlappen sich aufeinanderfolgende Akkorde zeitlich fast, sodass der perkussive Charakter eines klassischen Akkordanschlags vermieden wird und ein durchgehender Klang ensteht. Ein stark ausgeprägter Reverb (\texttt{room 0.9}, \texttt{size 0.95}) verleiht dem Pad abschließend die räumliche Tiefe für den sphärischen Gesamtklang.
 
 \begin{lstlisting}[language=Haskell, caption={Erzeugung Hintergrund Pad}, label={lst:tidal-pad}]
-d3 $ slow 2 $ n ( scale "minPent" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"
-  # attack 2         
-  # sustain 2                             
-  # release 2                       
-  # legato 2
+d3 $ slow 2 $ n ( scale "minPent" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"  
+  # attack 1
+  # release 1            
+  # legato 0.99
   # lpf (slow 20 $ range 200 "1000" $ sine)
-  # amp (slow 10 $ range 0.3 1 $ sine)  
+  # amp (slow 10 $ range 0.3 0.9 $ sine)  
   # room 0.9 # size 0.95    
   # gain 0.7
 \end{lstlisting}
