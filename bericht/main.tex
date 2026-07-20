@@ -108,7 +108,7 @@ Im Projekt werden drei verschiedene Tonquellen genutzt. Dabei tauschen die Tonqu
 
 Das Herzstück des Aufbaus stellt das Audio- und MIDI-Interface \textit{Steinberg UR242} dar. Dieses wird per USB-Anschluss mit dem Laptop verbunden und ermöglicht das Anbinden von externen Audio- und MIDI-Geräten. Das Interface kann dann im Betriebssystem als Audioausgabegerät genutzt werden. Das empfangene digitale Audiosignal wird im Interface in ein analoges Signal umgewandelt. Das analoge Ausgangssignal des Interfaces wird direkt mit dem Lautsprecher-Aufbau verbunden.
 
-Zur Modulierung verschiedener Parameter des Software-Synthesizers wird ein \textit{AKAI MPK mini}~\cite{AkaiMPKMiniMK3} verwendet. Dieses MIDI-Keyboard, das mit einer Klaviatur und verschiedenen Drehreglern ausgestattet ist, ist in der Lage, MIDI-Signale über eine USB-Schnittstelle zu versenden. In diesem Projekt kommen jedoch lediglich die Drehregler zum Einsatz. Diese versenden ein MIDI-Control-Change-Signal (MIDI-CC) (vgl. Abschnitt \ref{sec:MIDI}).
+Zur Modulierung verschiedener Parameter des Software-Synthesizers wird ein \textit{AKAI MPK mini}~\cite{AkaiMPKMiniMK3} verwendet. Dieses MIDI-Keyboard, das mit einer Klaviatur und verschiedenen Drehreglern ausgestattet ist, ist in der Lage, MIDI-Signale über eine USB-Schnittstelle zu versenden. In diesem Projekt kommen jedoch lediglich die Drehregler zum Einsatz. Diese versenden ein MIDI-Control-Change-Signal (MIDI-CC) (vgl. Abschnitt \ref{sec:MIDI-CC}).
 
 \subsection{Tonquellen}
 
@@ -126,17 +126,7 @@ Der Synthesizer verfügt über einen Tiefpassfilter, der auch über den internen
 
 Neben dem Hardware-Synthesizer wird im Projekt ein Software-Synthesizer genutzt, welcher im Folgenden \textit{datagraph} genannt wird \cite{SimmelbauerDatagraph}. Dieser ist über eine Browser-Oberfläche konfigurierbar und kann über die Web-MIDI-API~\cite{Wilson:25:WMA} angesprochen werden. Das erzeugte Tonsignal wird über das Betriebssystem an das Audio-Interface geleitet.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[height=250pt]{../assets/datagraph.png}
-    \caption{Ein Patch in der Software-Synthesizer-Umgebung}
-    \label{fig:datagraph}
-\end{figure}
-
-Der Software-Synthesizer erzeugt Töne durch einen vom Nutzer programmierbaren Audio-Graph. Der Audio-Graph besteht aus Knoten, die miteinander verbunden werden können. Jeder Knoten hat eine bestimmte Funktion, wie z.B. die Erzeugung eines Tonsignals, die Modulation eines Signals oder die Addition von Signalen. Codebeispiel~\ref{lst:add} zeigt eine einfache Implementierung eines Knotens, der zwei Eingangssignale addiert und das Ergebnis an einem Ausgang bereitstellt. Im Codebeispiel~\ref{lst:add_example} ist zu sehen, wie dieser Add-Knoten dann programmatisch via Rust API genutzt werden kann. Hier werden zwei Sinus-Signale unterschiedlicher Frequenzen addiert und die ersten 10 generierten Sample-Werte ausgegeben.
-
-Im Projekt benutzen wir jedoch nicht die Rust API direkt, sondern nutzen eine graphische Nutzeroberfläche mit welcher man Audio-Graphen dieser Art visuell erstellen kann. Abbildung \ref{fig:datagraph} zeigt die visuelle Darstellung eines Audio-Graphen in der Nutzeroberfläche.
-
+Der Software-Synthesizer erzeugt Töne durch einen vom Nutzer programmierbaren Audio-Graph. Der Audio-Graph besteht aus Knoten, die miteinander verbunden werden können. Jeder Knoten hat eine bestimmte Funktion, wie z.B. die Erzeugung eines Tonsignals, die Modulation eines Signals oder die Addition von Signalen. Codebeispiel~\ref{lst:add} zeigt eine einfache Implementierung eines Knotens, der zwei Eingangssignale addiert und das Ergebnis an einem Ausgang bereitstellt. Im Codebeispiel~\ref{lst:add_example} ist zu sehen, wie dieser \texttt{Add}-Knoten dann programmatisch via Rust API genutzt werden kann. Hier werden zwei Sinus-Signale unterschiedlicher Frequenzen addiert und die ersten 10 generierten Sample-Werte ausgegeben.
 
 \begin{lstlisting}[language=rust, caption=Implementierung eines Knotens zur Addition in der Software-Synthesizer-Umgebung, label=lst:add]
 pub struct Add;
@@ -166,11 +156,13 @@ let _ = graph.connect_ports(&freq1.output_port(0).unwrap(), &sin1.input_port(0).
 // 880 Hz -> sin2
 let _ = graph.connect_ports(&freq2.output_port(0).unwrap(), &sin2.input_port(0).unwrap());
 
-// sin1 + sin2 -> add
+// sin1 -> add
 let _ = graph.connect_ports(&sin1.output_port(0).unwrap(), &add.input_port(0).unwrap());
+// sin2 -> add
 let _ = graph.connect_ports(&sin2.output_port(0).unwrap(), &add.input_port(1).unwrap());
 
 for _ in 0..10 {
+  // Ausgangswert des add-Kotens auslesen und ausgeben
   let value = *graph.port_value(&add.output_port(0).unwrap()).unwrap();
   println!("{:?}", value);
   graph.tick();
@@ -191,6 +183,20 @@ Output:
 */
 \end{lstlisting}
 
+Im Projekt wird jedoch nicht die Rust API direkt genutzt, sondern eine graphische Nutzeroberfläche mit welcher man Audio-Graphen dieser Art visuell erstellen kann. Abbildung \ref{fig:datagraph} zeigt die visuelle Darstellung des im Projekt verwendeten Audio-Graphen in der Nutzeroberfläche. 
+
+Der gezeigte datagraph Patch nutzt 2 Sägezahn-Oszillatoren, die immer die Frequenz der zuletzt erhaltenen MIDI-Note wiedergeben. Die Frequenz eines der beiden Oszillatoren kann über ein MIDI-CC Signal (vgl. Abschnitt \ref{sec:MIDI-CC}) angepasst werden, sodass auch hier ein Schwebungseffekt erzeugt werden kann. Die beiden Oszillatoren werden dann gemischt und das gemischte Signal wird mit einer Hüllkurve multipliziert. Die Hüllkurve wird über einen \texttt{midigate}-Knoten gesteuert. Dieser extrahiert ein Gate Signal aus den erhaltenen \glqq Note On\grqq\ und \glqq Note Off\grqq\ MIDI-Signalen.
+
+Um Elemente aus dem Techno wiederzuverwenden, wurde eine zusätzliche Hüllkurve definiert, welche ebenso über den \texttt{midigate}-Knoten gesteuert wird. Diese Hüllkurve wird dann genutzt, um die Filterfrequenz eines Tiefpassfilters anzupassen. Der Einfluss dieser Hüllkurve auf die Filterfrequenz kann durch einen MIDI-CC Parameter gesteuert werden. Dieses Verhalten gleicht dem Parameter \textit{ENV MOD} des im Techno viel verwendeten Synthesizers \textit{Roland TB-303}.
+
+Zusätzlich gibt es noch die Möglichkeit, die Filterfrequenz direkt über ein weiteres MIDI-CC Signal zu steuern.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[height=400pt]{../assets/datagraph.png}
+    \caption{Der im Projekgt genutzte Patch in der datagraph Nutzeroberfläche.}
+    \label{fig:datagraph}
+\end{figure}
 
 \subsubsection{SuperCollider}
 Als dritte und letzte Tonquelle wird im Projekt \textit{SuperCollider}~\cite{mccartney1996supercollider} genutzt. SuperCollider dient als Backend für TidalCycles: TidalCycles steuert SuperCollider, SuperCollider erzeugt Audio- und MIDI-Signale und leitet diese an die jeweiligen Hard- und Software-Geräte weiter. Konkret erzeugt SuperCollider im Projekt die perkussiven Elemente und nutzt dafür Samples und Synthesizer, die mit der Installation von \textit{TidalCycles} mitgeliefert werden.

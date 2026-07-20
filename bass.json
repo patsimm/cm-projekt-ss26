@@ -5,18 +5,18 @@
       "name": "Speaker",
       "originalNodeId": "__output__",
       "kind": "output",
-      "canvasX": 15,
-      "canvasY": 484,
+      "canvasX": 123.29100428791253,
+      "canvasY": 575.6839113695455,
       "defaultInputValues": [
         0
       ]
     },
     {
       "name": "datagraph",
-      "originalNodeId": "UEUw5ABf",
+      "originalNodeId": "Q6OO0duk",
       "kind": "datagraph",
-      "canvasX": -4,
-      "canvasY": -80,
+      "canvasX": -251.8294982389416,
+      "canvasY": 113.82163775317849,
       "config": {
         "typename": "datagraph::nodes::crossfade::Crossfade"
       },
@@ -28,10 +28,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "jXfkDqys",
+      "originalNodeId": "4-eYeipR",
       "kind": "datagraph",
-      "canvasX": -5,
-      "canvasY": -511,
+      "canvasX": -182.1265289340281,
+      "canvasY": -309.24231467178015,
       "config": {
         "typename": "datagraph::nodes::conversions::CvToFreq"
       },
@@ -41,10 +41,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "wIuKR9jr",
+      "originalNodeId": "P01jibmU",
       "kind": "datagraph",
-      "canvasX": 21,
-      "canvasY": -403,
+      "canvasX": -168.39132973181904,
+      "canvasY": -216.3929509514046,
       "config": {
         "typename": "datagraph::nodes::math::Add"
       },
@@ -55,40 +55,28 @@
     },
     {
       "name": "param:midicc",
-      "originalNodeId": "x5Kg_A2G",
+      "originalNodeId": "-AQ46GNW",
       "kind": "param:midicc",
-      "canvasX": 140,
-      "canvasY": -694,
+      "canvasX": -109.73737368752472,
+      "canvasY": -460.2426188052127,
       "config": {
-        "value": 10
+        "value": 2
       },
       "settings": {
         "unit": "raw",
         "channel": 0,
-        "ccNumber": 1
+        "ccNumber": 1,
+        "minValue": 0,
+        "maxValue": 2
       },
       "defaultInputValues": []
     },
     {
       "name": "datagraph",
-      "originalNodeId": "MDoichEq",
+      "originalNodeId": "CG0uK13o",
       "kind": "datagraph",
-      "canvasX": 158,
-      "canvasY": -552,
-      "config": {
-        "typename": "datagraph::nodes::math::Multiply"
-      },
-      "defaultInputValues": [
-        0,
-        0.1
-      ]
-    },
-    {
-      "name": "datagraph",
-      "originalNodeId": "cFVr0gQb",
-      "kind": "datagraph",
-      "canvasX": 20,
-      "canvasY": -312,
+      "canvasX": -168.66987086136078,
+      "canvasY": -141.98650497194558,
       "config": {
         "typename": "datagraph::nodes::conversions::FreqToCv"
       },
@@ -98,10 +86,10 @@
     },
     {
       "name": "param:midinote",
-      "originalNodeId": "YSn1apoa",
+      "originalNodeId": "baMpu3Eh",
       "kind": "param:midinote",
-      "canvasX": -82,
-      "canvasY": -619,
+      "canvasX": -318.12272779790146,
+      "canvasY": -631.8585280570323,
       "config": {
         "value": 38
       },
@@ -113,10 +101,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "24ZI6U-L",
+      "originalNodeId": "-ypvn5HQ",
       "kind": "datagraph",
-      "canvasX": 44,
-      "canvasY": 378,
+      "canvasX": 152.29100428791253,
+      "canvasY": 469.6839113695455,
       "config": {
         "typename": "datagraph::nodes::math::Multiply"
       },
@@ -127,10 +115,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "ZcRsC8NL",
+      "originalNodeId": "H3SdipLQ",
       "kind": "datagraph",
-      "canvasX": 122,
-      "canvasY": -444,
+      "canvasX": -90.66099213686084,
+      "canvasY": -308.7212160852537,
       "config": {
         "typename": "datagraph::nodes::math::Multiply"
       },
@@ -141,40 +129,28 @@
     },
     {
       "name": "param:midicc",
-      "originalNodeId": "NBB_CxxS",
+      "originalNodeId": "-V1rSmv1",
       "kind": "param:midicc",
-      "canvasX": 334,
-      "canvasY": -15,
+      "canvasX": 230.4925609434481,
+      "canvasY": 337.05657822897,
       "config": {
-        "value": 24
+        "value": 0.08661417322834646
       },
       "settings": {
         "unit": "raw",
         "channel": 1,
-        "ccNumber": 4
+        "ccNumber": 4,
+        "minValue": 0,
+        "maxValue": 0.5
       },
       "defaultInputValues": []
     },
     {
       "name": "datagraph",
-      "originalNodeId": "ZggbAXa6",
+      "originalNodeId": "WFA4hM8e",
       "kind": "datagraph",
-      "canvasX": 173,
-      "canvasY": 122,
-      "config": {
-        "typename": "datagraph::nodes::math::Multiply"
-      },
-      "defaultInputValues": [
-        0,
-        0.005
-      ]
-    },
-    {
-      "name": "datagraph",
-      "originalNodeId": "_Or6oQJF",
-      "kind": "datagraph",
-      "canvasX": -78,
-      "canvasY": -194,
+      "canvasX": -320.05782727527503,
+      "canvasY": -11.00024530369592,
       "config": {
         "typename": "datagraph::nodes::oscillator::Saw"
       },
@@ -184,10 +160,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "mowQ3G04",
+      "originalNodeId": "fncPVWvd",
       "kind": "datagraph",
-      "canvasX": 19,
-      "canvasY": -194,
+      "canvasX": -170.39132973181904,
+      "canvasY": -7.3929509514046,
       "config": {
         "typename": "datagraph::nodes::oscillator::Saw"
       },
@@ -197,69 +173,43 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "epnGKAfj",
+      "originalNodeId": "nqZasvhs",
       "kind": "datagraph",
-      "canvasX": 22,
-      "canvasY": 292,
+      "canvasX": 130.29100428791253,
+      "canvasY": 383.6839113695455,
       "config": {
         "typename": "datagraph::nodes::filter::BiquadLPF"
       },
       "defaultInputValues": [
         0,
         0,
-        7
+        4
       ]
     },
     {
       "name": "param:midicc",
-      "originalNodeId": "0gAy1Axc",
+      "originalNodeId": "8y6Ss16k",
       "kind": "param:midicc",
-      "canvasX": 211,
-      "canvasY": -188,
+      "canvasX": 172.79061998216093,
+      "canvasY": 121.25596029916414,
       "config": {
-        "value": 43
+        "value": 205.90551181102362
       },
       "settings": {
         "unit": "raw",
         "channel": 1,
-        "ccNumber": 3
+        "ccNumber": 3,
+        "minValue": 50,
+        "maxValue": 5000
       },
       "defaultInputValues": []
     },
     {
-      "name": "datagraph",
-      "originalNodeId": "d49qd4P-",
-      "kind": "datagraph",
-      "canvasX": 206,
-      "canvasY": -38,
-      "config": {
-        "typename": "datagraph::nodes::math::Multiply"
-      },
-      "defaultInputValues": [
-        0,
-        40
-      ]
-    },
-    {
-      "name": "datagraph",
-      "originalNodeId": "lcMjzj3O",
-      "kind": "datagraph",
-      "canvasX": 146,
-      "canvasY": 18,
-      "config": {
-        "typename": "datagraph::nodes::math::Add"
-      },
-      "defaultInputValues": [
-        0,
-        50
-      ]
-    },
-    {
       "name": "param:midigate",
-      "originalNodeId": "ANhirkIl",
+      "originalNodeId": "Qk8IRdsS",
       "kind": "param:midigate",
-      "canvasX": -520,
-      "canvasY": -381,
+      "canvasX": -501.32929411545456,
+      "canvasY": -841.8967707440584,
       "config": {
         "value": 1
       },
@@ -271,10 +221,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "cVdzsLmq",
+      "originalNodeId": "ofN6wixs",
       "kind": "datagraph",
-      "canvasX": -476,
-      "canvasY": -13,
+      "canvasX": -452.785525809104,
+      "canvasY": 138.4739386696274,
       "config": {
         "typename": "datagraph::nodes::adsr::ADSR"
       },
@@ -288,10 +238,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "XjkOlCRH",
+      "originalNodeId": "NTh8gyIj",
       "kind": "datagraph",
-      "canvasX": -207,
-      "canvasY": 149,
+      "canvasX": -323.860265182524,
+      "canvasY": 222.91461061891277,
       "config": {
         "typename": "datagraph::nodes::math::Multiply"
       },
@@ -302,10 +252,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "uYIkmT9W",
+      "originalNodeId": "bC5KmgFp",
       "kind": "datagraph",
-      "canvasX": -228,
-      "canvasY": -94,
+      "canvasX": -16.49687181625768,
+      "canvasY": -578.2218978637516,
       "config": {
         "typename": "datagraph::nodes::math::Add"
       },
@@ -316,10 +266,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "8eUGY82d",
+      "originalNodeId": "poRnersS",
       "kind": "datagraph",
-      "canvasX": -178,
-      "canvasY": -24,
+      "canvasX": 112.46214190713363,
+      "canvasY": -413.0066166090742,
       "config": {
         "typename": "datagraph::nodes::math::Add"
       },
@@ -330,40 +280,28 @@
     },
     {
       "name": "param:midicc",
-      "originalNodeId": "T_iSsrtH",
+      "originalNodeId": "1yhhBuS_",
       "kind": "param:midicc",
-      "canvasX": -191,
-      "canvasY": -408,
+      "canvasX": 127.74068303667491,
+      "canvasY": -577.2671755427027,
       "config": {
-        "value": 25
+        "value": 0.1732283464566929
       },
       "settings": {
         "unit": "raw",
         "channel": 0,
-        "ccNumber": 2
+        "ccNumber": 2,
+        "minValue": 0,
+        "maxValue": 2
       },
       "defaultInputValues": []
     },
     {
       "name": "datagraph",
-      "originalNodeId": "t-OIHQnd",
+      "originalNodeId": "m-opf2xf",
       "kind": "datagraph",
-      "canvasX": -165,
-      "canvasY": -159,
-      "config": {
-        "typename": "datagraph::nodes::math::Multiply"
-      },
-      "defaultInputValues": [
-        0,
-        0.02
-      ]
-    },
-    {
-      "name": "datagraph",
-      "originalNodeId": "FKAEKg9q",
-      "kind": "datagraph",
-      "canvasX": -248,
-      "canvasY": -160,
+      "canvasX": -31.078115972495198,
+      "canvasY": -650.4147616851938,
       "config": {
         "typename": "datagraph::nodes::math::Multiply"
       },
@@ -374,10 +312,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "8J3aJr0O",
+      "originalNodeId": "iBQ42RSv",
       "kind": "datagraph",
-      "canvasX": 21,
-      "canvasY": 196,
+      "canvasX": 131.61332822095346,
+      "canvasY": 282.26515552578303,
       "config": {
         "typename": "datagraph::nodes::math::Multiply"
       },
@@ -388,10 +326,10 @@
     },
     {
       "name": "datagraph",
-      "originalNodeId": "I0vIDJKt",
+      "originalNodeId": "-vujzRgj",
       "kind": "datagraph",
-      "canvasX": -394,
-      "canvasY": -255,
+      "canvasX": -110.50482989198917,
+      "canvasY": -730.706710109268,
       "config": {
         "typename": "datagraph::nodes::expenv::ExpEnv"
       },
@@ -401,58 +339,36 @@
         0.2,
         0.9
       ]
-    },
-    {
-      "name": "visualizer:oscilloscope",
-      "originalNodeId": "SfFh8HEm",
-      "kind": "visualizer:oscilloscope",
-      "canvasX": -507,
-      "canvasY": 200,
-      "defaultInputValues": [
-        0
-      ]
     }
   ],
   "edges": [
     {
       "from": {
-        "nodeId": "jXfkDqys",
+        "nodeId": "4-eYeipR",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "wIuKR9jr",
+        "nodeId": "P01jibmU",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "x5Kg_A2G",
+        "nodeId": "P01jibmU",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "MDoichEq",
+        "nodeId": "CG0uK13o",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "wIuKR9jr",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "cFVr0gQb",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "24ZI6U-L",
+        "nodeId": "-ypvn5HQ",
         "port": 0,
         "portType": "out"
       },
@@ -464,312 +380,252 @@
     },
     {
       "from": {
-        "nodeId": "ZcRsC8NL",
+        "nodeId": "H3SdipLQ",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "wIuKR9jr",
+        "nodeId": "P01jibmU",
         "port": 1,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "MDoichEq",
+        "nodeId": "CG0uK13o",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "ZcRsC8NL",
+        "nodeId": "fncPVWvd",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "NBB_CxxS",
+        "nodeId": "fncPVWvd",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "ZggbAXa6",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "ZggbAXa6",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "24ZI6U-L",
+        "nodeId": "Q6OO0duk",
         "port": 1,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "cFVr0gQb",
+        "nodeId": "WFA4hM8e",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "mowQ3G04",
+        "nodeId": "Q6OO0duk",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "mowQ3G04",
+        "nodeId": "nqZasvhs",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "UEUw5ABf",
+        "nodeId": "-ypvn5HQ",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "Qk8IRdsS",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "ofN6wixs",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "ofN6wixs",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "NTh8gyIj",
+        "port": 0,
+        "portType": "in"
+      }
+    },
+    {
+      "from": {
+        "nodeId": "Q6OO0duk",
+        "port": 0,
+        "portType": "out"
+      },
+      "to": {
+        "nodeId": "NTh8gyIj",
         "port": 1,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "_Or6oQJF",
+        "nodeId": "NTh8gyIj",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "UEUw5ABf",
+        "nodeId": "nqZasvhs",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "epnGKAfj",
+        "nodeId": "baMpu3Eh",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "24ZI6U-L",
+        "nodeId": "4-eYeipR",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "0gAy1Axc",
+        "nodeId": "baMpu3Eh",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "d49qd4P-",
+        "nodeId": "WFA4hM8e",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "d49qd4P-",
+        "nodeId": "bC5KmgFp",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "lcMjzj3O",
+        "nodeId": "poRnersS",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "ANhirkIl",
+        "nodeId": "m-opf2xf",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "cVdzsLmq",
+        "nodeId": "bC5KmgFp",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "cVdzsLmq",
+        "nodeId": "poRnersS",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "XjkOlCRH",
+        "nodeId": "iBQ42RSv",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "UEUw5ABf",
+        "nodeId": "iBQ42RSv",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "XjkOlCRH",
+        "nodeId": "nqZasvhs",
         "port": 1,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "XjkOlCRH",
+        "nodeId": "Qk8IRdsS",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "epnGKAfj",
+        "nodeId": "-vujzRgj",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "YSn1apoa",
+        "nodeId": "-vujzRgj",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "jXfkDqys",
+        "nodeId": "m-opf2xf",
         "port": 0,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "YSn1apoa",
+        "nodeId": "1yhhBuS_",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "_Or6oQJF",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "uYIkmT9W",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "8eUGY82d",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "T_iSsrtH",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "t-OIHQnd",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "FKAEKg9q",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "uYIkmT9W",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "t-OIHQnd",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "8eUGY82d",
+        "nodeId": "poRnersS",
         "port": 1,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "lcMjzj3O",
+        "nodeId": "8y6Ss16k",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "8J3aJr0O",
+        "nodeId": "iBQ42RSv",
         "port": 1,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "8eUGY82d",
+        "nodeId": "-V1rSmv1",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "8J3aJr0O",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "8J3aJr0O",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "epnGKAfj",
+        "nodeId": "-ypvn5HQ",
         "port": 1,
         "portType": "in"
       }
     },
     {
       "from": {
-        "nodeId": "ANhirkIl",
+        "nodeId": "-AQ46GNW",
         "port": 0,
         "portType": "out"
       },
       "to": {
-        "nodeId": "I0vIDJKt",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "I0vIDJKt",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "FKAEKg9q",
-        "port": 0,
-        "portType": "in"
-      }
-    },
-    {
-      "from": {
-        "nodeId": "I0vIDJKt",
-        "port": 0,
-        "portType": "out"
-      },
-      "to": {
-        "nodeId": "SfFh8HEm",
+        "nodeId": "H3SdipLQ",
         "port": 0,
         "portType": "in"
       }
