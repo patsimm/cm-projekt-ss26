@@ -40,6 +40,12 @@ d3 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] c'min>") # s "superzo
   # gain 0.6
 \end{lstlisting}
 
+Im weiteren Verlauf des Stücks wird der analoge Synthesizer durch eine randomisierte Notenfolge angesteuert, um die Komplexität gezielt zu manipulieren (vgl. Listing~\ref{lst:tidal-synth-rand}). Zusätzlich lässt sich mittels \texttt{degradeBy} die Anzahl der gespielten Noten verändern. Die Funktion entfernt jedes Event mit einer übergebenen Wahrscheinlichkeit zwischen 0 und 1. Über den Verlauf des Stücks werden dabei unterschiedliche Werte eingesetzt, um die Komplexität gezielt zu erhöhen oder zu reduzieren. Bei einem Wert von 0.8 wird jedes Event der randomisierten Noten mit einer Wahrscheinlichkeit von 80\,\% entfernt, wodurch deutlich weniger Noten gespielt werden. Bei einem Wert von 0.3 bleibt hingegen der Großteil der Events erhalten, was im Hauptteil des Stücks für eine höhere Komplexität genutzt wird.
+
+\begin{lstlisting}[language=Haskell, caption={Randomisierung der Synth Noten}, label={lst:tidal-synth-rand}]
+d8 $ slow 2 $ degradeBy 0.3 $ n (scale "hexSus" (fmap fromIntegral $ randrun 8)) # s "mydevice"
+\end{lstlisting}
+
 \begin{enumerate}
     \item Einstellung Synthi "Acid" (rauer Ton durch hohe LFO Frequenz)
     \item Random Töne Synthi
