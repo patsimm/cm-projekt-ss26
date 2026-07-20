@@ -66,18 +66,29 @@ Ambient Techno bildet die Schnittmenge der beiden zuvor beschriebenen Genres: Es
 \end{figure}
 
 
-Im Projekt werden drei verschiedene Tonquellen genutzt. Dabei tauschen die verschiedenen Tonquellen untereinander Steuer-Signale aus und die 3 Tonquellen müssen am Ende zu einer einzelnen Tonsignal zusammengeführt werden. Da eines der Tonquellen ein externer Hardware Synthesizer ist reicht eine Software-Seitige Verbindung nicht nicht aus und es ist zusäztliche Hardware notwendig.
+Im Projekt werden drei verschiedene Tonquellen genutzt. Dabei tauschen die verschiedenen Tonquellen untereinander Steuer-Signale aus und die drei Tonquellen müssen am Ende zu einer einzelnen Tonsignal zusammengeführt werden. Da eines der Tonquellen ein externer Hardware Synthesizer ist reicht eine Software-Seitige Verbindung nicht nicht aus und es ist zusäztliche Hardware notwendig.
 
 Das Herzstück des Aufbaus stellt das Audio- und MIDI-Interface \textit{Steinberg UR242} dar. Dies wird per USB Anschluss mit dem Laptop verbunden und ermöglicht das Anbinden von externen Audio- und MIDI-Geräten. Das Interface kann dann im Betriebssystem als Audioausgabegerät genutzt werden. Das empfangene digitale Audio-Signal wird im Interface in ein analoges Signal umgewandelt. Das analoge Ausgangssignal des Interfaces wird direkt mit dem Lautsprecher-Aufbau verbunden.
 
-Der im Projekt verwendete externe Synthesizer ist der \textit{Korg Volca Keys}. Sein MIDI-Eingang wird mit dem MIDI-Ausgang des Audio-Interfaces verbunden. Welche Noten zu welchem Zeitpunkt vom Synthesizer wiedergegeben werden sollen, oder anders ausgedrückt, welche Frequenzen die analogen Oszillatoren in ihm erzeugen sollen, wird über die MIDI-Schnittstelle gesteuert. Das dabei erzeugte Audiosignal wird zurück zum Interface geleitet und dort in ein digitales Signal umgewandelt, das der Laptop verarbeiten kann.
-
-Neben dem Hardwaresynthesizer wird im Projekt ein Software-Synthesizer genutzt. Dieser ist konfigurierbar über eine Browser-Oberfläche und kann über die Web-MIDI-API \cite{Wilson:25:WMA} angesprochen werden. Das erzeugte Tonsignal wird über das Betriebssystem an das Audio-Interface geleitet.
-
-Als dritte und letzte Tonquelle wird im Projekt \textit{SuperCollider}\cite{mccartney1996supercollider} genutzt. SuperCollider dient als Backend für TidalCycles. TidalCylces steuert SuperCollider, SuperCollider erzeugt Audio- und MIDI-Signale und leitet diese an die jeweiligen Hard- und Software-Geräte weiter.
-
 Zur Modulierung verschiedener Parameter des Software-Synthesizers wird ein \textit{AKAI MPK mini}~\cite{AkaiMPKMiniMK3} verwendet. Dieses MIDI-Keyboard das mit einer Klaviatur, und verschiedenen Drehreglern ausgestattet ist, ist in der Lage MIDI-Signale über eine USB-Schnittstelle zu versenden. In diesem Projekt kommen jedoch lediglich die Drehregler zum Einsatz. Diese versenden ein MIDI Control Change Signal (MIDI-CC)(vgl. Abschnitt \ref{sec:MIDI}).
 
+\subsection{Tonquellen}
+
+Im folgenden Abschnitt werden die drei im Projekt verwendeten Tonquellen näher beschrieben. Dabei wird auf die Funktionsweise der Tonquellen eingegangen, sowohl erläutert wie diese Instrument im Projekt eingesetzt werden.
+
+\subsubsection{Korg Volca Keys}
+Der im Projekt verwendete externe Synthesizer ist der \textit{Korg Volca Keys}. Sein MIDI-Eingang wird mit dem MIDI-Ausgang des Audio-Interfaces verbunden. Welche Noten zu welchem Zeitpunkt vom Synthesizer wiedergegeben werden sollen, oder anders ausgedrückt, welche Frequenzen die analogen Oszillatoren in ihm erzeugen sollen, wird über die MIDI-Schnittstelle gesteuert. Das dabei erzeugte Audiosignal wird zurück zum Interface geleitet und dort in ein digitales Signal umgewandelt, das der Laptop verarbeiten kann.
+
+Korg Volca Keys ist ein analoger Synthesizer, der über drei Oszillatoren verfügt. Im Projekt wird er im Modus \textit{UNISON} betrieben. In diesem Modus erzeugen die drei Oszillatoren des Synthesizers eine Sägezahnschwingung mit identischer Frequenz. Dies erzeugt einen volleren Klang als eine einzelner Oszillator. Zusätzlich kann durch den \textit{DETUNE}-Regler die Frequenz eines der Oszillatoren leicht verändert werden. Auch dadurch enstehen Schwebungen (vgl. Abschnitt \ref{sec:schwebung}), die im Projekt als zentrales klangliches Mittel eingesetzt werden.
+
+Der Synthesizer verfügt über einen Tiefpass-Filter der auch über den internen LFO moduliert werden kann. Ebenso sind die \textit{ATTACK}-, \textit{DECAY/RELEASE}- sowie \textit{SUSTAIN}-Parameter des internen Hüllkurvengenerators über drei der verbauten Potentiometer einstellbar. Im Projekt wird zusätzlich der intene Delay-Effekt des Synthesizers genutzt. Dieser kann über die \textit{TIME}- und \textit{FEEDBACK}-Regler eingestellt werden.
+
+\subsubsection{Software-Synthesizer}
+Neben dem Hardwaresynthesizer wird im Projekt ein Software-Synthesizer genutzt. Dieser ist konfigurierbar über eine Browser-Oberfläche und kann über die Web-MIDI-API \cite{Wilson:25:WMA} angesprochen werden. Das erzeugte Tonsignal wird über das Betriebssystem an das Audio-Interface geleitet.
+
+\subsubsection{SuperCollider}
+Als dritte und letzte Tonquelle wird im Projekt \textit{SuperCollider}\cite{mccartney1996supercollider} genutzt. SuperCollider dient als Backend für TidalCycles. TidalCylces steuert SuperCollider, SuperCollider erzeugt Audio- und MIDI-Signale und leitet diese an die jeweiligen Hard- und Software-Geräte weiter. 
+Konkret erzeugt SuperCollider im Projekt die perkussiven Elemente und nutzt dafür Samples und Synthesizer, welche mit der Installation von \textit{TidalCycles} mitgeliefert werden.
 
 %----------------------------
 % Phils Sachen
