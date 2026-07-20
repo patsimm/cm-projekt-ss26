@@ -85,7 +85,6 @@ Ambient Techno bildet die Schnittmenge der beiden zuvor beschriebenen Genres. Es
 Das Genre legt den Fokus auf subtile klangliche Entwicklungen anstelle klassischer Drops und stellt emotionale Resonanz über strukturelle Komplexität.
 Die BPM-Zahl liegt dabei meist etwas unterhalb klassischer Techno-Strukturen und bewegt sich zwischen 90 und 125 BPM. Charakteristisch sind lange Wiederholungen mit graduellen Übergängen anstelle schneller Veränderungen. \cite{SampleSound}
 
-
 Einen wichtigen Teil für einen atmosphärischen und tiefen Klang stellen Texturen dar. Diese können durch Field Recordings (Natur- oder Umgebungsgeräusche, die außerhalb des Tonstudios aufgenommen werden), bearbeitete Rauschanteile durch Filter und LFO-Modulationen, Vinyl-Knistern, sich verändernde harmonische Obertöne oder Pads erzeugt werden. \cite{SampleSound}
 Pads stellen lang anhaltende polyphone Akkorde dar, welche typischerweise durch Synthesizer mit langsamen Attack- und Release-Zeiten, einer sich langsam verändernden Lautstärke sowie dem Einsatz von Hochpassfiltern erzeugt werden. \cite{BabyAudio} \cite{SampleSound}
 Ein weiteres charakteristisches Merkmal ist die Illusion räumlicher Tiefe durch den Einsatz von Delay- und Halleffekten. Insgesamt entsteht dadurch eine ruhige und geheimnisvolle Atmosphäre. \cite{SampleSound}
@@ -188,7 +187,7 @@ Der gezeigte datagraph Patch nutzt 2 Sägezahn-Oszillatoren, die immer die Frequ
 
 Um Elemente aus dem Techno wiederzuverwenden, wurde eine zusätzliche Hüllkurve definiert, welche ebenso über den \texttt{midigate}-Knoten gesteuert wird. Diese Hüllkurve wird dann genutzt, um die Filterfrequenz eines Tiefpassfilters anzupassen. Der Einfluss dieser Hüllkurve auf die Filterfrequenz kann durch einen MIDI-CC Parameter gesteuert werden. Dieses Verhalten gleicht dem Parameter \textit{ENV MOD} des im Techno viel verwendeten Synthesizers \textit{Roland TB-303}.
 
-Zusätzlich gibt es noch die Möglichkeit, die Filterfrequenz direkt über ein weiteres MIDI-CC Signal zu steuern.
+Zusätzlich gibt es noch die Möglichkeit, die Filterfrequenz sowie die Gesamtlautstärke direkt über weitere MIDI-CC Signale zu steuern.
 
 \begin{figure}[htbp]
     \centering
