@@ -96,14 +96,14 @@ d1 $ n "c'maj" # s "bass:4" # lpf 100
 
 hush
 
-d3 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] c'min>") # s "superzow"
+d3 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"
   # attack 3                                   -- long swell in, kills the "hit"
   # release 5                                  -- long   out, blurs into the next chord
   # sustain 1
-  # legato 2                                   -- notes overlap, envelope never fully resets
-  # lpf (slow 20 $ range 400 "2000" $ sine)    -- slow filter drift = the "spherical" motion
+  # legato 1                                   -- notes overlap, envelope never fully resets
+  # lpf (slow 1 $ range 100 "2000" $ sine)    -- slow filter drift = the "spherical" motion
   # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
-  # gain 0.6
+  # gain 0.7
 
 xfadeIn 3 32 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"
   # attack 3                                   -- long swell in, kills the "hit"
@@ -121,7 +121,7 @@ d4 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # 
   # legato 2                                   -- notes overlap, envelope never fully resets
   # lpf (slow 20 $ range 400 "1000" $ sine)    -- slow filter drift = the "spherical" motion
   # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
-  # gain 0.4
+  # gain 0.5
 
 xfadeIn 4 8 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # s "superzow"
   # attack 3                                   -- long swell in, kills the "hit"

@@ -22,9 +22,24 @@ Die vier einstellbaren Parameter sind eine Frequenz-Verschiebung einer der beide
 Der Bass wird zunächst mit einem Filterwert nahe der Grundfrequenz des Tons und einer Schwebung gleich der der Klangschalen verwendet. Nun wird zunächst ein Filter auf die Klangschalen angewendet bevor diese ganz entfernt werden.
 
 Verschiedene Schlag-Elemente werden zugeschaltet, sowie der \textit{Korg Volca Keys}-Synthesizer, dieser spielt zunächst jedoch nur einzelne Töne zu Beginn jedes zweiten Taktes und keine Melodie. Durch Einstellen eines hohen Delay-Feedbacks und Veränderung der Zeit-Komponente wird eine Art Tremolo mit schwankender Tonhöhe erzeugt (siehe Abschnitt \ref{sec:delay}). \\
+
+%TODO: warum hexSus und warum diese Töne, bringt der lpf wirklich was?? %
+Ein Pad wird aus drei zyklisch wechselnden Akkorden innerhalb der hexSus-Skala erstellt (Vergleich Listing~\ref{lst:tidal-pad}). Das Pad erzeugt Hintergrundtextur und fügt gleichzeitig eine melodische Ebene hinzu.
+Eine lange Attack-Zeit von drei Sekunden sowie eine Release-Zeit von fünf Sekunden sorgt dafür, dass die Akkorde ohne hörbaren Einsatzpunkt einschwingen und weich ineinander übergehen. In Kombination mit \texttt{legato 2} überlappen sich aufeinanderfolgende Akkorde zeitlich, sodass der perkussive Charakter eines klassischen Akkordanschlags vermieden wird. Ein stark ausgeprägter Reverb (\texttt{room 0.9}, \texttt{size 0.95}) verleiht dem Pad abschließend die räumliche Tiefe für den sphärischen Gesamtklang.
+
+\begin{lstlisting}[language=Haskell, caption={Erzeugung Hintergrund Pad}, label={lst:tidal-pad}]
+d3 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] c'min>") # s "superzow"
+  # attack 3                            
+  # release 5
+  # sustain 1
+  # legato 2
+  # lpf (slow 20 $ range 400 "2000" $ sine)
+  # room 0.9 # size 0.95
+  # gain 0.6
+\end{lstlisting}
+
 \begin{enumerate}
     \item Einstellung Synthi "Acid" (rauer Ton durch hohe LFO Frequenz)
-    \item Hintergrund synth Klänge (auftritt.tidal Zeile 98ff)
     \item Random Töne Synthi
     \item Abbau und Rückkehr zu Schwebung
 \end{enumerate}
