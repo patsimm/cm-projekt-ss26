@@ -1,7 +1,8 @@
 \section{Theorie}
 \subsection{Schwebung}
 \label{sec:schwebung}
-Zwei Schwingungen mit gleicher Amplitude und leicht unterschiedlichen Frequenzen, werden vom menschlichen Ohr nicht als zwei getrennte Töne wahrgenommen, stattdessen hört man einen Ton einer Frequenz die genau zwischen den beiden ursprünglichen Tönen liegt, dieser wird jedoch kontinuierlich lauter und wieder leiser (vgl. Abbildung \ref{fig:BildSchweb}).\\
+Zwei Schwingungen mit gleicher Amplitude und leicht unterschiedlichen Frequenzen, werden vom menschlichen Ohr nicht als zwei getrennte Töne wahrgenommen, stattdessen hört man einen Ton einer Frequenz die genau zwischen den beiden ursprünglichen Tönen liegt, dieser wird jedoch kontinuierlich lauter und wieder leiser (vgl. Abbildung \ref{fig:BildSchweb}).
+
 Dieser Effekt ist allgemein als Schwebung bekannt. Der Effekt ergibt sich direkt aus der Addition der beiden Schwingungen \cite[S.~149ff]{Gerthsen2004}.
 \begin{equation}
     \label{eq:Addition}
@@ -20,7 +21,8 @@ Durch Einsetzen von \ref{eq:Trig} in \ref{eq:Addition} folgt dann:
             = 2 A \cos(\pi f_{Schwebung}t) \sin(2\pi f_r t)
     \end{aligned}
 \end{equation}
-Wobei $\frac{f_1+f_2}{2}$ die Frequenz des resultierenden Tones $f_r$ beschreibt und $\frac{f_1-f_2}{2}$ die Frequenz mit der sich die Amplitude ändert. Da nur der Betrag der Amplitude interessant ist, schreiben wir $f_{Schwebung} = |f_1 - f_2|$~\cite[S.~149]{Gerthsen2004}.\\
+Wobei $\frac{f_1+f_2}{2}$ die Frequenz des resultierenden Tones $f_r$ beschreibt und $\frac{f_1-f_2}{2}$ die Frequenz mit der sich die Amplitude ändert. Da nur der Betrag der Amplitude interessant ist, schreiben wir $f_{Schwebung} = |f_1 - f_2|$~\cite[S.~149]{Gerthsen2004}.
+
 Der Effekt der Schwebung kann zur Klangsynthese ausgenutzt werden, insbesondere bei der Verwendung gleicher Töne, von denen einer eine leichte Frequenzveränderung erfährt ist die resultierende Schwebungsfrequenz direkt abhängig von der Änderung der Frequenz:
 \begin{equation}
     \begin{gathered}
@@ -44,13 +46,16 @@ Gleichung \ref{eq:Saegezahn} zeigt die Fourier-Zerlegung einer Sägezahnschwingu
     \label{eq:Saegezahn}
     f = - \frac{2}{\pi}\sum_{k\geq1}\frac{(-1)^k}{k}\sin(kx)
 \end{equation}
-Aus der Gleichung folgt, das eine Sägezahnschwingung aus einer Grundfrequenz und deren ganzahligen Vielfachen zusammengesetzt wird. Wird auf eine solche Schwingung nun ein sogenannter Tiefpassfilter angewendet, dessen Filterfrequenz sich der Grundfrequenz der Sägezahnschwingung annähert $(f_{filter} \to x)$, so ensteht wiederum eine reine harmonische Schwingung, da nur die Grundfrequenz übrig bleibt und die vielfachen gefiltert werden. Aufgrund des unterschiedlichen Klangbilds einer Sägezahnschwingung im Vergleich zu einer rein harmonischen Schwingung kann dieser Effekt ausgenutzt werden, um den Klang eines Synthesizers anzupassen.\\
+Aus der Gleichung folgt, das eine Sägezahnschwingung aus einer Grundfrequenz und deren ganzahligen Vielfachen zusammengesetzt wird. Wird auf eine solche Schwingung nun ein sogenannter Tiefpassfilter angewendet, dessen Filterfrequenz sich der Grundfrequenz der Sägezahnschwingung annähert $(f_{filter} \to x)$, so ensteht wiederum eine reine harmonische Schwingung, da nur die Grundfrequenz übrig bleibt und die vielfachen gefiltert werden. Aufgrund des unterschiedlichen Klangbilds einer Sägezahnschwingung im Vergleich zu einer rein harmonischen Schwingung kann dieser Effekt ausgenutzt werden, um den Klang eines Synthesizers anzupassen.
+
 Die durch einen Synthesizer erzeugte Sägezahnschwingung wird hierbei durch einen Tiefpassfilter geleitet, um so höher die eingestellte Filterfrequenz ist, desto mehr gleicht die resultierende Schwingung dem Original, der Ton klingt also, typisch für Sägezahnschwingungen, rau, $f_{filter} \to \infty$ wäre hierbei die perfekte Sägezahnschwingung. Je mehr die Filterfrequenz nun der Grundfrequenz des erzeugten Tons angenähert wird, desto weicher klingt der resultierende Ton.
 
 \subsection{Delay}
 \label{sec:delay}
-Der Delay Effekt spielt ein aufgenommenes Signal mit einer gewissen Zeitverzögerung immer wieder ab. Er ist dabei über zwei Parameter modifizierbar, nämlich die Zeitverzögerung mit der das Signal wiederholt wird und der Faktor um den das Signal bei jeder Wiederholung abgeschwächt wird. Das Signal wird hierbei bei modernen analogen Systemen mithilfe eines analog zu digital Wandlers in einem kleinen Puffer gespeichert und anschließend wieder abgespielt (vgl. Boss DD-2 Digital Delay Pedal~\cite{HobbyHourDD2Delay}).\\
-Der Zeit-Parameter des Effekts gibt hierbei, gerade bei solchen analogen Systemen, oft lediglich an wie schnell das im Puffer gespeicherte Signal wieder abgespielt werden soll. Wie in der Vorlesung gezeigt, kann dadurch ein zusätzlicher Effekt erzeugt werden. Durch Veränderung des Zeit-Parameters während ein Signal abgespielt wird, kann die Tonhöhe verändert werden.\\
+Der Delay Effekt spielt ein aufgenommenes Signal mit einer gewissen Zeitverzögerung immer wieder ab. Er ist dabei über zwei Parameter modifizierbar, nämlich die Zeitverzögerung mit der das Signal wiederholt wird und der Faktor um den das Signal bei jeder Wiederholung abgeschwächt wird. Das Signal wird hierbei bei modernen analogen Systemen mithilfe eines analog zu digital Wandlers in einem kleinen Puffer gespeichert und anschließend wieder abgespielt (vgl. Boss DD-2 Digital Delay Pedal~\cite{HobbyHourDD2Delay}).
+
+Der Zeit-Parameter des Effekts gibt hierbei, gerade bei solchen analogen Systemen, oft lediglich an wie schnell das im Puffer gespeicherte Signal wieder abgespielt werden soll. Wie in der Vorlesung gezeigt, kann dadurch ein zusätzlicher Effekt erzeugt werden. Durch Veränderung des Zeit-Parameters während ein Signal abgespielt wird, kann die Tonhöhe verändert werden.
+
 Das schneller, beziehungsweise langsamere, Durchlaufen des Puffers sorgt dafür, dass die digital gespeicherten Werte zu einem analogen Signal mit einer vom original Signal unterschiedlichen Frequenz zurückgewandelt werden. 
 
 \subsection{Musical Instrument Digital Interface (MIDI)}
