@@ -1,9 +1,9 @@
 \section{Theorie}
 \subsection{Schwebung}
 \label{sec:schwebung}
-Zwei Schwingungen mit gleicher Amplitude und leicht unterschiedlichen Frequenzen werden vom menschlichen Ohr nicht als zwei getrennte Töne wahrgenommen; stattdessen hört man einen Ton einer Frequenz, die genau zwischen den beiden ursprünglichen Tönen liegt. Dieser wird jedoch kontinuierlich lauter und wieder leiser (vgl. Abbildung \ref{fig:BildSchweb}).
+Zwei Schwingungen mit gleicher Amplitude und leicht unterschiedlichen Frequenzen werden vom menschlichen Ohr nicht als zwei getrennte Töne wahrgenommen; stattdessen hört man einen Ton einer Frequenz, die genau zwischen den beiden ursprünglichen Tönen liegt. Dieser wird jedoch kontinuierlich lauter und wieder leiser (vgl. Abbildung~\ref{fig:BildSchweb}).
 
-Dieser Effekt ist allgemein als Schwebung bekannt. Der Effekt ergibt sich direkt aus der Addition der beiden Schwingungen \cite[S.~149ff]{Gerthsen2004}.
+Dieser Effekt ist allgemein als Schwebung bekannt. Der Effekt ergibt sich direkt aus der Addition der beiden Schwingungen~\cite[S.~149ff]{Gerthsen2004}.
 \begin{equation}
     \label{eq:Addition}
     A_{res}(t) = A \sin(2\pi f_1t) + A \sin(2\pi f_2t)
@@ -13,7 +13,7 @@ Es gilt:
     \label{eq:Trig}
    \sin(a) + \sin(b) = 2\sin(\frac{a+b}{2})\cos(\frac{a-b}{2})
 \end{equation}
-Durch Einsetzen von \ref{eq:Trig} in \ref{eq:Addition} folgt dann:
+Durch Einsetzen von Gleichung~\ref{eq:Trig} in Gleichung~\ref{eq:Addition} folgt dann:
 \begin{equation}
     \label{eq:Ergebnis}
     \begin{aligned}
@@ -41,7 +41,7 @@ Durch diese Eigenschaft können sehr gezielt Schwebungsfrequenzen erzeugt werden
 
 \subsection{Sägezahn-Schwingung}
 \label{sec:sawtooth}
-Gleichung \ref{eq:Saegezahn} zeigt die Fourier-Zerlegung einer Sägezahnschwingung bekannt aus der Vorlesung und Übung.
+Gleichung~\ref{eq:Saegezahn} zeigt die Fourier-Zerlegung einer Sägezahnschwingung bekannt aus der Vorlesung und Übung.
 \begin{equation}
     \label{eq:Saegezahn}
     f = - \frac{2}{\pi}\sum_{k\geq1}\frac{(-1)^k}{k}\sin(kx)
@@ -60,4 +60,4 @@ Das schneller, beziehungsweise langsamere, Durchlaufen des Puffers sorgt dafür,
 
 \subsection{MIDI-Control Change (MIDI-CC)}
 \label{sec:MIDI-CC}
-Eine \textit{MIDI Control Change} Nachricht besteht aus einer Control Nummer (ganze Zahl zwischen 0 und 127), sowie einem Wert (ebenfalls ganze Zahl zwischen 0 und 127). Mithilfe dieser Nachrichten können verschiedene Parameter eingestellt werden. Bestimmte Control Nummern sind für die Einstellung gewisser Parameter vorgesehen~\cite{MIDIControlChange}. Es kann also beispielsweise über Control Nummer 7 die Lautstärke eines Kanals angepasst werden.
+Eine \textit{MIDI Control Change} Nachricht besteht aus einer Control Nummer (ganze Zahl zwischen 0 und 127), sowie einem Wert (ebenfalls ganze Zahl zwischen 0 und 127). Mithilfe dieser Nachrichten können verschiedene Parameter eingestellt werden. Bestimmte Control Nummern sind für die Einstellung gewisser Parameter vorgesehen~\cite{moog1986midi}. Es kann also beispielsweise über Control Nummer 7 die Lautstärke eines Kanals angepasst werden.

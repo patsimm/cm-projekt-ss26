@@ -3,8 +3,8 @@ setcps (bpm/60/4)
 
 -- 1 Start gong init
 
-gong shift = stack [ slow 2 $ n (scale "hexSus" "f3") # s "supergong"
-                   , slow 2 $ n (scale "hexSus" "f3") # s "supergong" # fshift (shift * bpm/60)
+gong shift = stack [ slow 2 $ n (scale "minPent" "f3") # s "supergong"
+                   , slow 2 $ n (scale "minPent" "f3") # s "supergong" # fshift (shift * bpm/60)
                    ]
 
 -- 1.1  slowy start fading in gong without schwebung
@@ -77,10 +77,10 @@ d8 $ slow 2 $ s "mydevice" # n "<-2, 1, 5>"
 d8 $ n "5" + s "mydevice"
 
 # rand tones to break pattern
-d8 $ slow 2 $ degradeBy 0.8 $ n (scale "hexSus" (fmap fromIntegral $ randrun 8)) # s "mydevice" # gain 0.7 
+d8 $ slow 2 $ degradeBy 0.8 $ n (scale "minPent" (fmap fromIntegral $ randrun 8)) # s "mydevice" # gain 0.7 
 xfadeIn 8 12 $ slow 2 $ n "0*4" + s "mydevice"
 
-d8 $ slow 4 $ n (scale "hexSus" (fmap fromIntegral $ randrun (segment 1 $ irand 10 + 3)) - 12) # s "mydevice"
+d8 $ slow 4 $ n (scale "minPent" (fmap fromIntegral $ randrun (segment 1 $ irand 10 + 3)) - 12) # s "mydevice"
 
 # Vielleicht increasen wie bei einem loop für drop
 d8 $ slow 1 $ n "5*4" + s "mydevice"
@@ -96,7 +96,7 @@ d1 $ n "c'maj" # s "bass:4" # lpf 100
 
 hush
 
-d3 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] c'min>") # s "superzow"
+d3 $ slow 2 $ n ( scale "minPent" "<[-2, 1, 5] [1, 3, 4, 7] c'min>") # s "superzow"
   # attack 3                                   -- long swell in, kills the "hit"
   # release 5                                  -- long   out, blurs into the next chord
   # sustain 1
@@ -105,7 +105,7 @@ d3 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] c'min>") # s "superzo
   # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
   # gain 0.6
 
-xfadeIn 3 32 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"
+xfadeIn 3 32 $ slow 2 $ n ( scale "minPent" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>") # s "superzow"
   # attack 3                                   -- long swell in, kills the "hit"
   # release 5                                  -- long   out, blurs into the next chord
   # sustain 1
@@ -114,7 +114,7 @@ xfadeIn 3 32 $ slow 2 $ n ( scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>"
   # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
   # gain 0
 
-d4 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # s "superzow"
+d4 $ slow 2 $ n (arpg (scale "minPent" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # s "superzow"
   # attack 3                                   -- long swell in, kills the "hit"
   # release 5                                  -- long   out, blurs into the next chord
   # sustain 1
@@ -123,7 +123,7 @@ d4 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # 
   # room 0.9 # size 0.95                       -- long reverb glues it into one continuous wash
   # gain 0.4
 
-xfadeIn 4 8 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # s "superzow"
+xfadeIn 4 8 $ slow 2 $ n (arpg (scale "minPent" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 7]>")) # s "superzow"
   # attack 3                                   -- long swell in, kills the "hit"
   # release 5                                  -- long   out, blurs into the next chord
   # sustain 1
@@ -133,6 +133,6 @@ xfadeIn 4 8 $ slow 2 $ n (arpg (scale "hexSus" "<[-2, 1, 5] [1, 3, 4, 7] [0, 3, 
   # gain 0
 
 # 3 synth 
-d8 $ slow 4 $ n (scale "hexSus" "[0 <0 4 -4 6 1 4>]*4") + s "mydevice" # gain 0.7
+d8 $ slow 4 $ n (scale "minPent" "[0 <0 4 -4 6 1 4>]*4") + s "mydevice" # gain 0.7
 hush
 
